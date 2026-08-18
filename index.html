@@ -365,6 +365,12 @@
         white-space: nowrap;
       }
 
+      .chip.selected {
+        color: #1d5f5a;
+        border-color: rgba(33, 124, 118, 0.35);
+        background: rgba(119, 216, 207, 0.2);
+      }
+
       .send {
         flex: 0 0 auto;
         display: inline-flex;
@@ -559,6 +565,332 @@
         line-height: 1.5;
       }
 
+      .section-toggle {
+        min-width: 76px;
+      }
+
+      .collapsible-body {
+        max-height: 1600px;
+        overflow: hidden;
+        opacity: 1;
+        transition: max-height 220ms ease, opacity 180ms ease;
+      }
+
+      .collapsible-body.collapsed {
+        max-height: 0;
+        opacity: 0;
+      }
+
+      .first-task {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        gap: 20px;
+        align-items: stretch;
+        padding: 20px;
+        border: 1px solid rgba(33, 124, 118, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 12px 28px rgba(42, 37, 30, 0.06);
+      }
+
+      .first-task-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .first-task-copy .eyebrow {
+        width: fit-content;
+        margin-bottom: 12px;
+      }
+
+      .first-task-copy h2 {
+        margin-bottom: 8px;
+      }
+
+      .first-task-copy p {
+        max-width: 590px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .task-progress {
+        display: flex;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .task-progress span {
+        flex: 1;
+        height: 7px;
+        border-radius: 999px;
+        background: #e5ded5;
+      }
+
+      .task-progress span.done,
+      .task-progress span.current {
+        background: var(--aqua-dark);
+      }
+
+      .first-task-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 18px;
+      }
+
+      .first-task-steps {
+        display: grid;
+        gap: 8px;
+        align-content: center;
+      }
+
+      .first-task-step {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+        min-height: 56px;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        text-align: left;
+      }
+
+      .first-task-step .step-number {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        color: #fff;
+        border-radius: 50%;
+        background: #a79f94;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .first-task-step strong {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 13px;
+      }
+
+      .first-task-step small {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .first-task-step .step-state {
+        color: #8c847a;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .first-task-step.done {
+        border-color: rgba(33, 124, 118, 0.24);
+        background: rgba(119, 216, 207, 0.12);
+      }
+
+      .first-task-step.done .step-number {
+        background: var(--aqua-dark);
+      }
+
+      .first-task-step.done .step-state {
+        color: var(--aqua-dark);
+      }
+
+      .template,
+      .activity-row,
+      .asset-card,
+      .todo-item {
+        cursor: pointer;
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      .template:hover,
+      .activity-row:hover,
+      .asset-card:hover,
+      .todo-item:hover,
+      .template:focus-visible,
+      .activity-row:focus-visible,
+      .asset-card:focus-visible,
+      .todo-item:focus-visible {
+        border-color: rgba(33, 124, 118, 0.45);
+        box-shadow: 0 12px 30px rgba(33, 124, 118, 0.12);
+        outline: 0;
+        transform: translateY(-2px);
+      }
+
+      .template.is-hidden,
+      .activity-row.is-hidden,
+      .asset-card.is-hidden {
+        display: none;
+      }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .asset-card {
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid rgba(23, 23, 23, 0.09);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 12px 28px rgba(42, 37, 30, 0.06);
+      }
+
+      .asset-thumb {
+        position: relative;
+        display: grid;
+        place-items: center;
+        height: 128px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #172a28, #77d8cf 54%, #ff8067);
+        color: #fff;
+        font-size: 34px;
+        font-weight: 850;
+      }
+
+      .asset-card:nth-child(2) .asset-thumb {
+        background: linear-gradient(135deg, #3a2c52, #8b7cf6 52%, #e7b84f);
+      }
+
+      .asset-card:nth-child(3) .asset-thumb {
+        background: linear-gradient(135deg, #2b352d, #73b878 55%, #e7b84f);
+      }
+
+      .asset-thumb::after {
+        content: "";
+        position: absolute;
+        right: 14px;
+        bottom: 12px;
+        width: 54px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(23, 23, 23, 0.2);
+        filter: blur(5px);
+      }
+
+      .asset-card h3 {
+        margin: 0 0 5px;
+        font-size: 15px;
+      }
+
+      .asset-card p {
+        min-height: 38px;
+        margin: 0 0 11px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .asset-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .asset-meta strong {
+        color: var(--aqua-dark);
+        font-size: 12px;
+      }
+
+      .notification-panel {
+        position: absolute;
+        z-index: 8;
+        top: 72px;
+        right: 118px;
+        width: min(330px, calc(100vw - 28px));
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 18px 45px rgba(23, 23, 23, 0.16);
+      }
+
+      .notification-panel[hidden] {
+        display: none;
+      }
+
+      .notification-panel h3 {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+
+      .notification {
+        display: grid;
+        grid-template-columns: 8px minmax(0, 1fr);
+        gap: 9px;
+        padding: 9px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .notification p {
+        margin: 0;
+        color: #4f4941;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .notification .dot {
+        margin-top: 4px;
+      }
+
+      .detail-modal {
+        width: min(620px, 100%);
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 12px;
+        background: #fbfaf7;
+        box-shadow: 0 32px 90px rgba(23, 23, 23, 0.28);
+      }
+
+      .detail-modal .modal-top {
+        margin-bottom: 18px;
+      }
+
+      .detail-modal h2 {
+        margin-bottom: 8px;
+        font-size: 28px;
+      }
+
+      .detail-modal p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .detail-list {
+        display: grid;
+        gap: 8px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .detail-list li {
+        padding: 11px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #4b453d;
+        font-size: 13px;
+      }
+
+      .detail-modal .modal-actions {
+        justify-content: flex-end;
+      }
+
       .template-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -736,6 +1068,14 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel-strong);
+        width: 100%;
+        color: var(--ink);
+        text-align: left;
+      }
+
+      .todo-item.done {
+        border-color: rgba(33, 124, 118, 0.24);
+        background: rgba(119, 216, 207, 0.11);
       }
 
       .check {
@@ -1151,7 +1491,8 @@
         }
 
         .hero,
-        .workspace-grid {
+        .workspace-grid,
+        .first-task {
           grid-template-columns: 1fr;
         }
 
@@ -1160,6 +1501,10 @@
         }
 
         .template-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .asset-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -1227,8 +1572,13 @@
           min-height: 450px;
         }
 
+        .first-task {
+          padding: 16px;
+        }
+
         .stage-strip,
-        .template-grid {
+        .template-grid,
+        .asset-grid {
           grid-template-columns: 1fr;
         }
 
@@ -1277,6 +1627,11 @@
           padding: 20px;
         }
 
+        .notification-panel {
+          top: 126px;
+          right: 14px;
+        }
+
         .goal-grid {
           grid-template-columns: 1fr;
         }
@@ -1306,23 +1661,23 @@
 
         <nav class="nav-section" aria-label="Primary">
           <p class="nav-title">CREATE</p>
-          <button class="nav-item active" title="Agent">
+          <button class="nav-item active" title="Agent" data-nav="Agent">
             <span class="nav-icon">✦</span>
             <span>Agent</span>
           </button>
-          <button class="nav-item" title="Image to 3D">
+          <button class="nav-item" title="Image to 3D" data-nav="Image to 3D">
             <span class="nav-icon">▧</span>
             <span>Image to 3D</span>
           </button>
-          <button class="nav-item" title="Text to 3D">
+          <button class="nav-item" title="Text to 3D" data-nav="Text to 3D">
             <span class="nav-icon">T</span>
             <span>Text to 3D</span>
           </button>
-          <button class="nav-item" title="Texturing">
+          <button class="nav-item" title="Texturing" data-nav="Texturing">
             <span class="nav-icon">◐</span>
             <span>Texturing</span>
           </button>
-          <button class="nav-item" title="Animation">
+          <button class="nav-item" title="Animation" data-nav="Animation">
             <span class="nav-icon">↻</span>
             <span>Animation</span>
           </button>
@@ -1330,11 +1685,11 @@
 
         <nav class="nav-section" aria-label="Library">
           <p class="nav-title">LIBRARY</p>
-          <button class="nav-item" title="My Assets">
+          <button class="nav-item" title="My Assets" data-nav="My Assets">
             <span class="nav-icon">▣</span>
             <span>My Assets</span>
           </button>
-          <button class="nav-item" title="Community">
+          <button class="nav-item" title="Community" data-nav="Community">
             <span class="nav-icon">◎</span>
             <span>Community</span>
           </button>
@@ -1350,19 +1705,32 @@
         </div>
       </aside>
 
-      <main class="main">
+      <main class="main" id="homeMain">
         <header class="topbar">
           <label class="search" aria-label="Search workspace">
             <span aria-hidden="true">⌕</span>
             <input placeholder="搜索模型、任务、材质、提示词" />
           </label>
           <div class="top-actions">
-            <button class="ghost">导入参考图</button>
-            <button class="icon-btn" title="Notifications">●</button>
+            <input id="referenceInput" type="file" accept="image/*" hidden />
+            <button class="ghost" id="importReference">导入参考图</button>
+            <button class="icon-btn" id="notificationButton" title="通知">●</button>
             <button class="auth-btn" id="loginButton">登录 / 注册</button>
-            <button class="primary">新建项目</button>
+            <button class="primary" id="newProjectButton">新建项目</button>
           </div>
         </header>
+
+        <div class="notification-panel" id="notificationPanel" hidden>
+          <h3>最近通知</h3>
+          <div class="notification">
+            <span class="dot" aria-hidden="true"></span>
+            <p>你的“低面数森林道具包”已完成贴图，可以导出 GLB。</p>
+          </div>
+          <div class="notification">
+            <span class="dot" aria-hidden="true"></span>
+            <p>Agent 建议为“龙形香炉”生成分件打印版本。</p>
+          </div>
+        </div>
 
         <section class="hero">
           <div class="hero-copy">
@@ -1396,7 +1764,7 @@
           <aside class="preview" aria-label="Agent output preview">
             <div class="preview-head">
               <span class="status-pill"><span class="dot"></span>Agent 正在规划流程</span>
-              <button class="icon-btn" title="Expand preview">↗</button>
+              <button class="icon-btn" id="expandPreview" title="展开 Agent 预览">↗</button>
             </div>
 
             <div class="viewport">
@@ -1430,51 +1798,102 @@
           </aside>
         </section>
 
-        <section class="section">
+        <section class="section section-collapsible" id="firstTaskSection">
+          <div class="section-head">
+            <div>
+              <h2>完成你的第一个 Agent 任务</h2>
+              <p>从一个目标开始，四步把想法推进成可以继续编辑的作品。</p>
+            </div>
+            <button class="ghost section-toggle" data-collapse="firstTaskBody">收起</button>
+          </div>
+          <div class="collapsible-body" id="firstTaskBody">
+            <div class="first-task">
+              <div class="first-task-copy">
+                <span class="eyebrow"><span class="dot"></span> 新手任务 · 约 2 分钟</span>
+                <h2 id="firstTaskTitle">先告诉 Agent 你想做什么</h2>
+                <p id="firstTaskDescription">不用写专业 prompt。选择一个用途，描述一个物体，Agent 会自动补齐生成、贴图和导出建议。</p>
+                <div class="task-progress" aria-label="首个任务进度">
+                  <span class="current"></span><span></span><span></span><span></span>
+                </div>
+                <div class="first-task-actions">
+                  <button class="primary" id="firstTaskAction">开始第一个任务 →</button>
+                  <button class="ghost" id="firstTaskLearn">查看任务说明</button>
+                </div>
+              </div>
+              <div class="first-task-steps">
+                <button class="first-task-step current" data-task-step="1">
+                  <span class="step-number">1</span>
+                  <span><strong>描述目标</strong><small>写下用途和想法</small></span>
+                  <span class="step-state">当前</span>
+                </button>
+                <button class="first-task-step" data-task-step="2">
+                  <span class="step-number">2</span>
+                  <span><strong>选择方向</strong><small>比较 Agent 生成的方案</small></span>
+                  <span class="step-state">待开始</span>
+                </button>
+                <button class="first-task-step" data-task-step="3">
+                  <span class="step-number">3</span>
+                  <span><strong>生成 3D 资产</strong><small>确认模型和材质</small></span>
+                  <span class="step-state">待开始</span>
+                </button>
+                <button class="first-task-step" data-task-step="4">
+                  <span class="step-number">4</span>
+                  <span><strong>保存到作品</strong><small>下次回来继续编辑</small></span>
+                  <span class="step-state">待开始</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-collapsible">
           <div class="section-head">
             <div>
               <h2>从目标开始，而不是从工具开始</h2>
               <p>把原首页的 quick start 升级成更清晰的创作模板。</p>
             </div>
-            <button class="ghost">查看全部模板</button>
+            <button class="ghost section-toggle" data-collapse="templateBody">收起</button>
           </div>
 
-          <div class="template-grid">
-            <article class="template">
+          <div class="collapsible-body" id="templateBody">
+            <div class="template-grid">
+            <article class="template" tabindex="0" role="button" data-template="game">
               <div class="thumb"></div>
               <b>游戏道具生成</b>
               <p>统一风格、低面数策略、PBR 材质与引擎导出建议。</p>
             </article>
-            <article class="template">
+            <article class="template" tabindex="0" role="button" data-template="character">
               <div class="thumb"></div>
               <b>角色与生物概念</b>
               <p>从轮廓、姿态和材质开始，先产出可选择的方向。</p>
             </article>
-            <article class="template">
+            <article class="template" tabindex="0" role="button" data-template="print">
               <div class="thumb"></div>
               <b>3D 打印部件</b>
               <p>强调支撑、厚度、重心、拼装与可打印性检查。</p>
             </article>
-            <article class="template">
+            <article class="template" tabindex="0" role="button" data-template="product">
               <div class="thumb"></div>
               <b>产品造型探索</b>
               <p>输入品牌词和参考图，生成可评审的形态方案。</p>
             </article>
+            </div>
           </div>
         </section>
 
-        <section class="section">
+        <section class="section section-collapsible" id="recentSection">
           <div class="section-head">
             <div>
               <h2>最近的 Agent 任务</h2>
               <p>让用户回到任务流，而不是只看到孤立文件。</p>
             </div>
-            <button class="ghost">整理工作区</button>
+            <button class="ghost section-toggle" data-collapse="workspaceBody">收起</button>
           </div>
 
+          <div class="collapsible-body" id="workspaceBody">
           <div class="workspace-grid">
             <div class="activity">
-              <div class="activity-row">
+              <div class="activity-row" tabindex="0" role="button" data-task="incense" data-prompt="继续龙形香炉项目，优化底座支撑并生成青铜氧化材质的分件打印版本。">
                 <div class="mini"></div>
                 <div>
                   <h3>龙形香炉 · 青铜氧化版</h3>
@@ -1483,7 +1902,7 @@
                 <span class="badge">可继续生成</span>
                 <span class="muted-small">12 分钟前</span>
               </div>
-              <div class="activity-row">
+              <div class="activity-row" tabindex="0" role="button" data-task="teahouse" data-prompt="做一个赛博茶馆的桌面摆件，适合 3D 打印，结构要稳，表面有细密机械纹理。">
                 <div class="mini"></div>
                 <div>
                   <h3>赛博茶馆桌面摆件</h3>
@@ -1492,7 +1911,7 @@
                 <span class="badge">待你选择</span>
                 <span class="muted-small">今天</span>
               </div>
-              <div class="activity-row">
+              <div class="activity-row" tabindex="0" role="button" data-task="forest" data-prompt="继续低面数森林道具包，检查贴图并导出 FBX 与 GLB。">
                 <div class="mini"></div>
                 <div>
                   <h3>低面数森林道具包</h3>
@@ -1506,29 +1925,62 @@
             <aside class="inspector">
               <h3>Agent 今日建议</h3>
               <div class="todo">
-                <div class="todo-item">
+                <button class="todo-item" data-todo="1">
                   <span class="check">✓</span>
                   <div>
                     <b>先选用途</b>
                     <span>同一个 prompt 在游戏资产、打印、产品图里会走不同约束。</span>
                   </div>
-                </div>
-                <div class="todo-item">
+                </button>
+                <button class="todo-item" data-todo="2">
                   <span class="check">2</span>
                   <div>
                     <b>上传一张参考</b>
                     <span>图片能帮助 Agent 解析轮廓、材质和比例，减少返工。</span>
                   </div>
-                </div>
-                <div class="todo-item">
+                </button>
+                <button class="todo-item" data-todo="3">
                   <span class="check">3</span>
                   <div>
                     <b>保留多个方向</b>
                     <span>先用概念分支筛选，再进入高质量 3D 生成更高效。</span>
                   </div>
-                </div>
+                </button>
               </div>
             </aside>
+          </div>
+          </div>
+        </section>
+
+        <section class="section section-collapsible" id="assetsSection">
+          <div class="section-head">
+            <div>
+              <h2>你的作品资产</h2>
+              <p>把完成过的模型留在首页，回来就能继续编辑、变体或导出。</p>
+            </div>
+            <button class="ghost section-toggle" data-collapse="assetBody">收起</button>
+          </div>
+          <div class="collapsible-body" id="assetBody">
+            <div class="asset-grid" id="assetGrid">
+              <article class="asset-card" tabindex="0" role="button" data-asset="teahouse">
+                <div class="asset-thumb">3D</div>
+                <h3>赛博茶馆桌面摆件</h3>
+                <p>4 个概念方向 · 已保存 1 个主轮廓</p>
+                <div class="asset-meta"><span>今天更新</span><strong>继续编辑 →</strong></div>
+              </article>
+              <article class="asset-card" tabindex="0" role="button" data-asset="incense">
+                <div class="asset-thumb">MTL</div>
+                <h3>龙形香炉 · 青铜氧化版</h3>
+                <p>模型与材质已保存 · 支撑结构待优化</p>
+                <div class="asset-meta"><span>12 分钟前</span><strong>继续生成 →</strong></div>
+              </article>
+              <article class="asset-card" tabindex="0" role="button" data-asset="forest">
+                <div class="asset-thumb">GLB</div>
+                <h3>低面数森林道具包</h3>
+                <p>12 个模型 · PBR 贴图 · 支持 FBX / GLB</p>
+                <div class="asset-meta"><span>昨天</span><strong>查看导出 →</strong></div>
+              </article>
+            </div>
           </div>
         </section>
       </main>
@@ -1629,38 +2081,60 @@
         </div>
       </section>
     </div>
+
+    <div class="modal-backdrop" id="detailModal" aria-hidden="true">
+      <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <div class="modal-top">
+          <span class="modal-kicker">MESHY WORKSPACE</span>
+          <button class="modal-close" id="closeDetail" title="关闭详情">×</button>
+        </div>
+        <h2 id="detailTitle">任务详情</h2>
+        <p id="detailDescription">从这里继续你的创作。</p>
+        <ul class="detail-list" id="detailList"></ul>
+        <div class="modal-actions">
+          <button class="ghost" id="detailSecondary">稍后处理</button>
+          <button class="primary" id="detailPrimary">继续任务 →</button>
+        </div>
+      </section>
+    </div>
     <div class="toast" id="toast" role="status"></div>
 
     <script>
       const promptBox = document.querySelector("#prompt");
       const tabs = document.querySelectorAll(".tab");
+      const toast = document.querySelector("#toast");
       const welcomeModal = document.querySelector("#welcomeModal");
+      const detailModal = document.querySelector("#detailModal");
       const onboardingView = document.querySelector("#onboardingView");
       const authView = document.querySelector("#authView");
       const goalStep = document.querySelector("#goalStep");
       const startStep = document.querySelector("#startStep");
       const continueOnboarding = document.querySelector("#continueOnboarding");
-      const skipOnboarding = document.querySelector("#skipOnboarding");
-      const closeModal = document.querySelector("#closeModal");
       const loginButton = document.querySelector("#loginButton");
-      const toast = document.querySelector("#toast");
+      const referenceInput = document.querySelector("#referenceInput");
+      const notificationPanel = document.querySelector("#notificationPanel");
+      const firstTaskAction = document.querySelector("#firstTaskAction");
+      const firstTaskTitle = document.querySelector("#firstTaskTitle");
+      const firstTaskDescription = document.querySelector("#firstTaskDescription");
+      const detailPrimary = document.querySelector("#detailPrimary");
       let onboardingStep = 1;
       let selectedGoal = "游戏资产";
       let selectedStart = "text";
-
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          tabs.forEach((item) => item.classList.remove("active"));
-          tab.classList.add("active");
-          promptBox.value = tab.dataset.prompt;
-        });
-      });
+      let detailAction = null;
+      let taskRunning = false;
+      let firstTaskStage = Number(localStorage.getItem("meshy-first-task-stage") || "1");
 
       const showToast = (message) => {
         toast.textContent = message;
         toast.classList.add("show");
         window.clearTimeout(showToast.timer);
         showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2800);
+      };
+
+      const setPrompt = (value, message) => {
+        promptBox.value = value;
+        promptBox.focus();
+        if (message) showToast(message);
       };
 
       const openModal = (mode = "onboarding") => {
@@ -1676,6 +2150,22 @@
         if (remember) localStorage.setItem("meshy-onboarding-complete", "true");
       };
 
+      const openDetail = (title, description, items, action, label = "继续任务 →") => {
+        document.querySelector("#detailTitle").textContent = title;
+        document.querySelector("#detailDescription").textContent = description;
+        document.querySelector("#detailList").innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+        detailAction = action;
+        detailPrimary.textContent = label;
+        detailModal.classList.add("open");
+        detailModal.setAttribute("aria-hidden", "false");
+      };
+
+      const closeDetail = () => {
+        detailModal.classList.remove("open");
+        detailModal.setAttribute("aria-hidden", "true");
+        detailAction = null;
+      };
+
       const updateOnboardingStep = (step) => {
         onboardingStep = step;
         goalStep.hidden = step !== 1;
@@ -1686,28 +2176,280 @@
         continueOnboarding.textContent = step === 1 ? "继续 →" : "开始我的第一个任务";
       };
 
+      const updateFirstTask = (stage) => {
+        firstTaskStage = Math.max(1, Math.min(4, stage));
+        localStorage.setItem("meshy-first-task-stage", String(firstTaskStage));
+        const titles = [
+          "先告诉 Agent 你想做什么",
+          "选择一个最有潜力的方向",
+          "生成并检查你的 3D 资产",
+          "保存作品，下次继续创作",
+        ];
+        const descriptions = [
+          "不用写专业 prompt。选择一个用途，描述一个物体，Agent 会自动补齐生成、贴图和导出建议。",
+          "Agent 已经准备好方向。先比较轮廓、材质和用途，再决定进入哪一个 3D 版本。",
+          "确认模型比例、细节和材质。你可以继续生成变体，也可以直接进入导出准备。",
+          "作品已经可以保存。登录后还能跨设备回到任务历史，继续生成新的变体。",
+        ];
+        firstTaskTitle.textContent = titles[firstTaskStage - 1];
+        firstTaskDescription.textContent = descriptions[firstTaskStage - 1];
+        firstTaskAction.textContent = firstTaskStage === 4 ? "查看作品资产 →" : `${firstTaskStage === 1 ? "开始" : "继续"}这一步 →`;
+        document.querySelectorAll(".task-progress span").forEach((bar, index) => {
+          bar.classList.toggle("done", index < firstTaskStage - 1);
+          bar.classList.toggle("current", index === firstTaskStage - 1);
+        });
+        document.querySelectorAll(".first-task-step").forEach((step, index) => {
+          const stepNumber = index + 1;
+          const done = stepNumber < firstTaskStage;
+          step.classList.toggle("done", done);
+          step.classList.toggle("current", stepNumber === firstTaskStage);
+          step.querySelector(".step-number").textContent = done ? "✓" : String(stepNumber);
+          step.querySelector(".step-state").textContent = done ? "已完成" : stepNumber === firstTaskStage ? "当前" : "待开始";
+        });
+      };
+
+      const startTask = () => {
+        if (taskRunning) return;
+        const value = promptBox.value.trim();
+        if (!value) {
+          showToast("先写下一句话，Agent 才能开始规划。 ");
+          promptBox.focus();
+          return;
+        }
+        taskRunning = true;
+        document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 正在创建任务';
+        document.querySelector(".send").textContent = "任务创建中…";
+        firstTaskAction.disabled = true;
+        showToast("任务已创建，Agent 正在拆解用途、风格和生成步骤。 ");
+        window.setTimeout(() => {
+          taskRunning = false;
+          document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 已准备好下一步';
+          document.querySelector(".send").textContent = "开始创作 →";
+          firstTaskAction.disabled = false;
+          updateFirstTask(Math.max(firstTaskStage, 2));
+          document.querySelector("#recentSection").scrollIntoView({ behavior: "smooth", block: "start" });
+          showToast("第一步完成：请选择一个方向，继续生成你的作品。 ");
+        }, 900);
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => item.classList.remove("active"));
+          tab.classList.add("active");
+          setPrompt(tab.dataset.prompt);
+        });
+      });
+
+      document.querySelectorAll(".chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          chip.classList.toggle("selected");
+          const tag = chip.textContent.trim();
+          if (chip.classList.contains("selected") && !promptBox.value.includes(tag)) {
+            promptBox.value = `${promptBox.value.replace(/[。.]?$/, "")}，${tag}。`;
+          }
+          showToast(chip.classList.contains("selected") ? `已加入约束：${tag}` : `已移除约束：${tag}`);
+        });
+      });
+
+      document.querySelector(".send").addEventListener("click", startTask);
+      document.querySelector("#firstTaskAction").addEventListener("click", () => {
+        if (firstTaskStage === 1) {
+          startTask();
+          return;
+        }
+        if (firstTaskStage === 2) {
+          updateFirstTask(3);
+          openDetail("选择主轮廓", "Agent 为你的任务整理了 4 个可以继续生成的方向。", ["比较整体轮廓和使用场景", "保留一个主方向，再生成 2 个材质变体", "确认后进入高质量 3D 生成"], "generate", "生成 3D 资产 →");
+          return;
+        }
+        if (firstTaskStage === 3) {
+          updateFirstTask(4);
+          openDetail("资产已生成", "模型和材质已经进入你的作品空间。", ["模型：已生成", "材质：PBR 预览已准备", "下一步：保存资产并选择导出格式"], "asset", "保存到作品资产 →");
+          return;
+        }
+        document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+        showToast("已回到你的作品资产，可以继续编辑或导出。 ");
+      });
+
+      document.querySelector("#firstTaskLearn").addEventListener("click", () => {
+        openDetail("第一次任务怎么走", "Meshy Agent 会把一个模糊想法拆成可选择、可检查、可保存的创作步骤。", ["1. 描述用途和物体", "2. 比较方向并保留主方案", "3. 生成模型、贴图和变体", "4. 保存到作品资产，之后继续编辑"], { kind: "prompt", prompt: promptBox.value }, "去写下我的想法 →");
+      });
+
+      document.querySelectorAll("[data-task-step]").forEach((step) => {
+        step.addEventListener("click", () => {
+          const requested = Number(step.dataset.taskStep);
+          if (requested <= firstTaskStage) updateFirstTask(requested);
+          else showToast(`先完成第 ${firstTaskStage} 步，再进入这一步。`);
+        });
+      });
+
+      document.querySelectorAll("[data-collapse]").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const body = document.querySelector(`#${toggle.dataset.collapse}`);
+          const collapsed = body.classList.toggle("collapsed");
+          toggle.textContent = collapsed ? "展开" : "收起";
+          toggle.setAttribute("aria-expanded", String(!collapsed));
+        });
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      document.querySelectorAll("[data-nav]").forEach((item) => {
+        item.addEventListener("click", () => {
+          document.querySelectorAll("[data-nav]").forEach((nav) => nav.classList.remove("active"));
+          item.classList.add("active");
+          const nav = item.dataset.nav;
+          if (nav === "Agent") document.querySelector("#homeMain").scrollIntoView({ behavior: "smooth", block: "start" });
+          if (nav === "My Assets") document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+          if (nav !== "Agent" && nav !== "My Assets") showToast(`${nav} 入口已保留，当前页面会为你保留已有 Meshy 工作流。`);
+        });
+      });
+
+      document.querySelector("#importReference").addEventListener("click", () => referenceInput.click());
+      referenceInput.addEventListener("change", () => {
+        const file = referenceInput.files[0];
+        if (!file) return;
+        const suffix = promptBox.value.trim().endsWith("。") ? "" : "。";
+        promptBox.value = `${promptBox.value.trim()}${suffix}参考图：${file.name}，请解析轮廓、材质和比例。`;
+        showToast(`已导入参考图：${file.name}`);
+        updateFirstTask(Math.max(firstTaskStage, 1));
+      });
+
+      document.querySelector("#newProjectButton").addEventListener("click", () => {
+        promptBox.value = "";
+        tabs.forEach((tab, index) => tab.classList.toggle("active", index === 0));
+        document.querySelectorAll(".chip").forEach((chip) => chip.classList.remove("selected"));
+        updateFirstTask(1);
+        document.querySelector("#homeMain").scrollIntoView({ behavior: "smooth", block: "start" });
+        showToast("新项目已准备好，先从一句话开始。 ");
+        promptBox.focus();
+      });
+
+      document.querySelector("#notificationButton").addEventListener("click", () => {
+        notificationPanel.hidden = !notificationPanel.hidden;
+      });
+
+      document.querySelector("#expandPreview").addEventListener("click", () => {
+        openDetail("Agent 输出预览", "这是当前任务的工作流预览。完成每一步后，作品会继续沉淀到你的资产空间。", ["理解目标：已完成", "概念发散：等待你选择方向", "生成 3D：可继续推进", "交付资产：登录后可保存"], { kind: "prompt", prompt: promptBox.value }, "继续当前任务 →");
+      });
+
+      const templatePrompts = {
+        game: "做一个适合游戏引擎的低面数森林守卫道具，风格统一，带 PBR 材质。",
+        character: "设计一个有清晰轮廓和独特材质的奇幻角色，先生成 4 个姿态和造型方向。",
+        print: "做一个适合 3D 打印的桌面摆件，结构稳固，支持分件和支撑检查。",
+        product: "探索一个简洁、可量产的消费电子产品外形，生成 4 个可比较的概念方向。",
+      };
+
+      document.querySelectorAll("[data-template]").forEach((card) => {
+        const useTemplate = () => {
+          setPrompt(templatePrompts[card.dataset.template], "模板已载入，可以继续补充你的想法。 ");
+          document.querySelector(".composer").scrollIntoView({ behavior: "smooth", block: "center" });
+        };
+        card.addEventListener("click", useTemplate);
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            useTemplate();
+          }
+        });
+      });
+
+      const taskDetails = {
+        incense: ["龙形香炉 · 青铜氧化版", "优化底座支撑并生成分件打印版本。", ["当前进度：模型与材质已保存", "建议动作：检查重心和支撑面", "输出：分件 STL + 青铜 PBR 材质"], "prompt", "继续生成 →"],
+        teahouse: ["赛博茶馆桌面摆件", "4 个概念方向等待选择主轮廓。", ["当前进度：概念方向已生成", "建议动作：选择一个主轮廓", "输出：高质量 3D + 可打印版本"], "prompt", "选择方向 →"],
+        forest: ["低面数森林道具包", "12 个模型完成贴图，可以导出到你的引擎。", ["当前进度：PBR 贴图已完成", "支持格式：FBX、GLB", "建议动作：查看导出设置"], "export", "查看导出 →"],
+      };
+
+      document.querySelectorAll("[data-task]").forEach((row) => {
+        const openTask = () => {
+          const detail = taskDetails[row.dataset.task];
+          openDetail(detail[0], detail[1], detail[2], { kind: detail[3], prompt: row.dataset.prompt }, detail[4]);
+        };
+        row.addEventListener("click", openTask);
+        row.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openTask();
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-asset]").forEach((card) => {
+        card.addEventListener("click", () => {
+          const title = card.querySelector("h3").textContent;
+          const prompt = card.dataset.asset === "forest" ? "继续低面数森林道具包，检查贴图并导出 FBX 与 GLB。" : card.dataset.asset === "incense" ? "继续龙形香炉项目，优化底座支撑并生成青铜氧化材质的分件打印版本。" : "继续赛博茶馆桌面摆件，选择主轮廓并生成更多材质方向。";
+          openDetail(title, "这是已经保存在作品空间里的资产。", ["继续编辑模型和材质", "生成一个新的风格或比例变体", "完成后返回作品资产，方便下次继续"], { kind: "prompt", prompt }, "继续编辑 →");
+        });
+      });
+
+      document.querySelectorAll("[data-todo]").forEach((item) => {
+        item.addEventListener("click", () => {
+          item.classList.toggle("done");
+          const check = item.querySelector(".check");
+          check.textContent = item.classList.contains("done") ? "✓" : item.dataset.todo;
+          showToast(item.classList.contains("done") ? "建议已完成，继续保持任务流。" : "建议已恢复到待处理。");
+        });
+      });
+
+      const searchInput = document.querySelector(".search input");
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        const searchable = document.querySelectorAll("[data-template], [data-task], [data-asset]");
+        searchable.forEach((item) => item.classList.toggle("is-hidden", query && !item.textContent.toLowerCase().includes(query)));
+      });
+
+      detailPrimary.addEventListener("click", () => {
+        if (!detailAction) return closeDetail();
+        if (detailAction.kind === "prompt") {
+          setPrompt(detailAction.prompt, "任务已载入编辑器，可以继续创作。 ");
+          closeDetail();
+          document.querySelector(".composer").scrollIntoView({ behavior: "smooth", block: "center" });
+        } else if (detailAction.kind === "generate") {
+          closeDetail();
+          updateFirstTask(3);
+          showToast("已进入 3D 生成阶段，Agent 正在准备资产。 ");
+        } else if (detailAction.kind === "asset") {
+          closeDetail();
+          document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+          showToast("资产已保存到作品空间。 ");
+        } else if (detailAction.kind === "export") {
+          closeDetail();
+          showToast("导出设置已打开，选择 GLB 或 FBX 即可继续。 ");
+        }
+      });
+
+      document.querySelector("#detailSecondary").addEventListener("click", closeDetail);
+      document.querySelector("#closeDetail").addEventListener("click", closeDetail);
+      detailModal.addEventListener("click", (event) => {
+        if (event.target === detailModal) closeDetail();
+      });
+
+      document.querySelector("#closeModal").addEventListener("click", () => closeWelcome());
+      document.querySelector("#skipOnboarding").addEventListener("click", () => {
+        closeWelcome();
+        showToast("你可以随时从首页开始创作。 ");
+      });
+      welcomeModal.addEventListener("click", (event) => {
+        if (event.target === welcomeModal) closeWelcome();
+      });
       document.querySelectorAll(".goal-card").forEach((card) => {
         card.addEventListener("click", () => {
           document.querySelectorAll(".goal-card").forEach((item) => item.classList.remove("selected"));
           card.classList.add("selected");
           selectedGoal = card.dataset.goal;
-          promptBox.value = card.dataset.prompt;
+          setPrompt(card.dataset.prompt);
         });
       });
-
       document.querySelectorAll(".start-card").forEach((card) => {
         card.addEventListener("click", () => {
           document.querySelectorAll(".start-card").forEach((item) => item.classList.remove("selected"));
           card.classList.add("selected");
           selectedStart = card.dataset.start;
+          if (selectedStart === "image") showToast("下一步可以导入一张参考图，Agent 会解析轮廓和材质。 ");
+          if (selectedStart === "guided") showToast("引导模式会先帮你确定用途和约束。 ");
         });
       });
-
       continueOnboarding.addEventListener("click", () => {
-        if (onboardingStep === 1) {
-          updateOnboardingStep(2);
-          return;
-        }
+        if (onboardingStep === 1) return updateOnboardingStep(2);
         localStorage.setItem("meshy-onboarding-goal", selectedGoal);
         localStorage.setItem("meshy-onboarding-start", selectedStart);
         closeWelcome();
@@ -1715,54 +2457,35 @@
         promptBox.focus();
       });
 
-      skipOnboarding.addEventListener("click", () => {
-        closeWelcome();
-        showToast("你可以随时从首页开始创作。");
-      });
-
-      closeModal.addEventListener("click", () => closeWelcome());
-      welcomeModal.addEventListener("click", (event) => {
-        if (event.target === welcomeModal) closeWelcome();
-      });
-
       loginButton.addEventListener("click", () => {
         openModal("auth");
         document.querySelector("#emailInput")?.focus();
       });
-
       document.querySelector("#backToOnboarding").addEventListener("click", () => openModal("onboarding"));
       document.querySelector("#guestFromAuth").addEventListener("click", () => {
         closeWelcome();
-        showToast("已进入访客模式，完成登录后可保存项目。");
+        showToast("已进入访客模式，完成登录后可保存项目。 ");
       });
-
-      document.querySelector("#googleLogin").addEventListener("click", () => {
-        localStorage.setItem("meshy-demo-user", "google-user");
+      const completeLogin = (user, message) => {
+        localStorage.setItem("meshy-demo-user", user);
         loginButton.textContent = "已登录";
         loginButton.classList.add("logged-in");
         closeWelcome(false);
-        showToast("已登录，接下来可以保存你的 Agent 项目。");
-      });
-
+        showToast(message);
+      };
+      document.querySelector("#googleLogin").addEventListener("click", () => completeLogin("google-user", "已登录，接下来可以保存你的 Agent 项目。 "));
       document.querySelector("#authForm").addEventListener("submit", (event) => {
         event.preventDefault();
         const email = document.querySelector("#emailInput").value.trim();
-        if (!email) return;
-        localStorage.setItem("meshy-demo-user", email);
-        loginButton.textContent = "已登录";
-        loginButton.classList.add("logged-in");
-        closeWelcome(false);
-        showToast(`欢迎回来，${email}。`);
+        if (email) completeLogin(email, `欢迎回来，${email}。`);
       });
 
       if (localStorage.getItem("meshy-demo-user")) {
         loginButton.textContent = "已登录";
         loginButton.classList.add("logged-in");
       }
-
-      if (!localStorage.getItem("meshy-onboarding-complete")) {
-        window.setTimeout(() => openModal("onboarding"), 420);
-      }
+      updateFirstTask(firstTaskStage);
+      if (!localStorage.getItem("meshy-onboarding-complete")) window.setTimeout(() => openModal("onboarding"), 420);
     </script>
   </body>
 </html>
