@@ -763,6 +763,372 @@
         line-height: 1.4;
       }
 
+      .auth-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+        padding: 0 13px;
+        color: #2e2b27;
+        border: 1px solid rgba(23, 23, 23, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        font-weight: 750;
+      }
+
+      .auth-btn.logged-in {
+        color: #1d5f5a;
+        border-color: rgba(33, 124, 118, 0.22);
+        background: rgba(119, 216, 207, 0.22);
+      }
+
+      .modal-backdrop {
+        position: fixed;
+        z-index: 20;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(23, 23, 23, 0.34);
+        backdrop-filter: blur(12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .modal-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .onboarding-modal {
+        display: grid;
+        grid-template-columns: minmax(210px, 0.72fr) minmax(360px, 1fr);
+        width: min(780px, 100%);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        background: #fbfaf7;
+        box-shadow: 0 32px 90px rgba(23, 23, 23, 0.28);
+        transform: translateY(12px) scale(0.98);
+        transition: transform 180ms ease;
+      }
+
+      .modal-backdrop.open .onboarding-modal {
+        transform: translateY(0) scale(1);
+      }
+
+      .onboarding-art {
+        position: relative;
+        min-height: 470px;
+        overflow: hidden;
+        padding: 24px;
+        color: #fff;
+        background:
+          radial-gradient(circle at 30% 18%, rgba(119, 216, 207, 0.78), transparent 32%),
+          linear-gradient(145deg, #172a28, #316e69 58%, #ff8067);
+      }
+
+      .onboarding-art::before,
+      .onboarding-art::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        transform: rotate(26deg);
+      }
+
+      .onboarding-art::before {
+        top: 144px;
+        left: 34px;
+        width: 190px;
+        height: 330px;
+      }
+
+      .onboarding-art::after {
+        top: 186px;
+        left: 90px;
+        width: 160px;
+        height: 260px;
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .art-label {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .art-copy {
+        position: absolute;
+        z-index: 1;
+        right: 24px;
+        bottom: 25px;
+        left: 24px;
+      }
+
+      .art-copy h3 {
+        max-width: 220px;
+        margin: 0 0 10px;
+        font-size: 28px;
+        line-height: 1.08;
+      }
+
+      .art-copy p {
+        max-width: 240px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .onboarding-content {
+        min-width: 0;
+        padding: 26px;
+      }
+
+      .modal-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 30px;
+      }
+
+      .modal-kicker {
+        color: var(--aqua-dark);
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+      }
+
+      .modal-close {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: #655e55;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        font-size: 20px;
+      }
+
+      .stepper {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 18px;
+      }
+
+      .stepper span {
+        width: 36px;
+        height: 5px;
+        border-radius: 999px;
+        background: #e5ded5;
+      }
+
+      .stepper span.active {
+        background: var(--aqua-dark);
+      }
+
+      .onboarding-view h2 {
+        margin: 0 0 10px;
+        font-size: 30px;
+        line-height: 1.1;
+      }
+
+      .onboarding-view > p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .goal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
+        margin-top: 22px;
+      }
+
+      .goal-card {
+        min-height: 112px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: #36322d;
+        text-align: left;
+      }
+
+      .goal-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .goal-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .goal-card.selected {
+        border-color: var(--aqua-dark);
+        background: rgba(119, 216, 207, 0.16);
+        box-shadow: inset 0 0 0 1px var(--aqua-dark);
+      }
+
+      .start-grid {
+        display: grid;
+        gap: 9px;
+        margin-top: 22px;
+      }
+
+      .start-card {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        min-height: 62px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        text-align: left;
+      }
+
+      .start-card.selected {
+        border-color: var(--aqua-dark);
+        background: rgba(119, 216, 207, 0.16);
+        box-shadow: inset 0 0 0 1px var(--aqua-dark);
+      }
+
+      .start-icon {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: #fff;
+        border-radius: 8px;
+        background: #171717;
+        font-weight: 800;
+      }
+
+      .start-card strong,
+      .start-card span {
+        display: block;
+      }
+
+      .start-card strong {
+        margin-bottom: 3px;
+        font-size: 14px;
+      }
+
+      .start-card span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .modal-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .modal-actions .primary {
+        min-width: 150px;
+      }
+
+      .auth-form {
+        display: grid;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .auth-form label {
+        color: #4a443d;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .auth-form input {
+        width: 100%;
+        height: 44px;
+        margin-top: 6px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        outline: 0;
+        background: #fff;
+      }
+
+      .auth-form input:focus {
+        border-color: var(--aqua-dark);
+        box-shadow: 0 0 0 3px rgba(119, 216, 207, 0.2);
+      }
+
+      .provider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        height: 44px;
+        color: #302c27;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        font-weight: 750;
+      }
+
+      .auth-divider {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #9a9187;
+        font-size: 12px;
+      }
+
+      .auth-divider::before,
+      .auth-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .toast {
+        position: fixed;
+        z-index: 30;
+        right: 20px;
+        bottom: 20px;
+        max-width: min(360px, calc(100vw - 40px));
+        padding: 13px 16px;
+        color: #fff;
+        border-radius: 8px;
+        background: #171717;
+        box-shadow: 0 18px 40px rgba(23, 23, 23, 0.22);
+        font-size: 13px;
+        line-height: 1.45;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       @media (max-width: 1120px) {
         .shell {
           grid-template-columns: 88px minmax(0, 1fr);
@@ -836,6 +1202,10 @@
           justify-content: space-between;
         }
 
+        .auth-btn {
+          flex: 1;
+        }
+
         h1 {
           font-size: 42px;
         }
@@ -869,6 +1239,59 @@
         .activity-row .badge,
         .activity-row .muted-small {
           grid-column: 2;
+        }
+
+        .onboarding-modal {
+          display: block;
+          max-height: calc(100vh - 32px);
+          overflow: auto;
+        }
+
+        .onboarding-art {
+          min-height: 170px;
+        }
+
+        .onboarding-art::before,
+        .onboarding-art::after {
+          top: -90px;
+          left: 58%;
+        }
+
+        .art-copy {
+          right: 18px;
+          bottom: 18px;
+          left: 18px;
+        }
+
+        .art-copy h3 {
+          max-width: 250px;
+          margin-bottom: 5px;
+          font-size: 22px;
+        }
+
+        .art-copy p {
+          max-width: 290px;
+        }
+
+        .onboarding-content {
+          padding: 20px;
+        }
+
+        .goal-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .goal-card {
+          min-height: 74px;
+        }
+
+        .modal-actions {
+          align-items: stretch;
+          flex-direction: column-reverse;
+        }
+
+        .modal-actions .primary {
+          width: 100%;
         }
       }
     </style>
@@ -936,6 +1359,7 @@
           <div class="top-actions">
             <button class="ghost">导入参考图</button>
             <button class="icon-btn" title="Notifications">●</button>
+            <button class="auth-btn" id="loginButton">登录 / 注册</button>
             <button class="primary">新建项目</button>
           </div>
         </header>
@@ -1110,9 +1534,119 @@
       </main>
     </div>
 
+    <div class="modal-backdrop" id="welcomeModal" aria-hidden="true">
+      <section class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="onboarding-art">
+          <span class="art-label"><span class="dot"></span> Meshy Agent</span>
+          <div class="art-copy">
+            <h3>你的下一个 3D 项目，从这里开始。</h3>
+            <p>告诉 Agent 你想做什么，它会帮你拆解方向、选择工具，再一步步完成资产。</p>
+          </div>
+        </div>
+
+        <div class="onboarding-content">
+          <div class="modal-top">
+            <span class="modal-kicker">WELCOME TO MESHY</span>
+            <button class="modal-close" id="closeModal" title="关闭">×</button>
+          </div>
+
+          <div class="onboarding-view" id="onboardingView">
+            <div class="stepper" aria-label="Onboarding progress">
+              <span class="active"></span>
+              <span></span>
+            </div>
+
+            <div id="goalStep">
+              <h2 id="modalTitle">你想先创造什么？</h2>
+              <p>选一个最接近的目标，Agent 会自动调整建议和生成流程。</p>
+              <div class="goal-grid">
+                <button class="goal-card selected" data-goal="游戏资产" data-prompt="做一个适合游戏引擎的低面数森林守卫道具，风格统一，带 PBR 材质。">
+                  <strong>▦ 游戏资产</strong>
+                  <span>道具、角色、场景与材质</span>
+                </button>
+                <button class="goal-card" data-goal="3D 打印" data-prompt="做一个适合 3D 打印的桌面摆件，结构稳固，支持分件和支撑检查。">
+                  <strong>◇ 3D 打印</strong>
+                  <span>部件、摆件与可打印结构</span>
+                </button>
+                <button class="goal-card" data-goal="产品设计" data-prompt="探索一个简洁、可量产的消费电子产品外形，生成 4 个可比较的概念方向。">
+                  <strong>◌ 产品设计</strong>
+                  <span>形态探索、概念与评审</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="startStep" hidden>
+              <h2>你想怎么开始？</h2>
+              <p>不用准备完整 prompt，选一个入口，Agent 会帮你补齐下一步。</p>
+              <div class="start-grid">
+                <button class="start-card selected" data-start="text">
+                  <span class="start-icon">T</span>
+                  <span>
+                    <strong>直接描述想法</strong>
+                    <span>用一句话告诉 Agent 你想做什么</span>
+                  </span>
+                </button>
+                <button class="start-card" data-start="image">
+                  <span class="start-icon">▧</span>
+                  <span>
+                    <strong>从图片或草图开始</strong>
+                    <span>上传参考图，解析轮廓和材质</span>
+                  </span>
+                </button>
+                <button class="start-card" data-start="guided">
+                  <span class="start-icon">✦</span>
+                  <span>
+                    <strong>让我一步步引导</strong>
+                    <span>先确定用途，再慢慢完善细节</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="modal-actions">
+              <button class="ghost" id="skipOnboarding">先逛逛</button>
+              <button class="primary" id="continueOnboarding">继续 →</button>
+            </div>
+          </div>
+
+          <div class="onboarding-view" id="authView" hidden>
+            <h2>登录后保存每一次创作</h2>
+            <p>登录后可以保存项目、回到任务历史，并在不同设备继续工作。</p>
+            <form class="auth-form" id="authForm">
+              <button type="button" class="provider" id="googleLogin">◎ 使用 Google 继续</button>
+              <div class="auth-divider">或使用邮箱</div>
+              <label>
+                邮箱地址
+                <input id="emailInput" type="email" placeholder="you@example.com" required />
+              </label>
+              <button class="primary" type="submit">继续登录</button>
+            </form>
+            <div class="modal-actions">
+              <button class="ghost" id="backToOnboarding">返回引导</button>
+              <button class="primary" id="guestFromAuth">先以访客体验</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+
     <script>
       const promptBox = document.querySelector("#prompt");
       const tabs = document.querySelectorAll(".tab");
+      const welcomeModal = document.querySelector("#welcomeModal");
+      const onboardingView = document.querySelector("#onboardingView");
+      const authView = document.querySelector("#authView");
+      const goalStep = document.querySelector("#goalStep");
+      const startStep = document.querySelector("#startStep");
+      const continueOnboarding = document.querySelector("#continueOnboarding");
+      const skipOnboarding = document.querySelector("#skipOnboarding");
+      const closeModal = document.querySelector("#closeModal");
+      const loginButton = document.querySelector("#loginButton");
+      const toast = document.querySelector("#toast");
+      let onboardingStep = 1;
+      let selectedGoal = "游戏资产";
+      let selectedStart = "text";
 
       tabs.forEach((tab) => {
         tab.addEventListener("click", () => {
@@ -1121,6 +1655,114 @@
           promptBox.value = tab.dataset.prompt;
         });
       });
+
+      const showToast = (message) => {
+        toast.textContent = message;
+        toast.classList.add("show");
+        window.clearTimeout(showToast.timer);
+        showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2800);
+      };
+
+      const openModal = (mode = "onboarding") => {
+        welcomeModal.classList.add("open");
+        welcomeModal.setAttribute("aria-hidden", "false");
+        onboardingView.hidden = mode !== "onboarding";
+        authView.hidden = mode !== "auth";
+      };
+
+      const closeWelcome = (remember = true) => {
+        welcomeModal.classList.remove("open");
+        welcomeModal.setAttribute("aria-hidden", "true");
+        if (remember) localStorage.setItem("meshy-onboarding-complete", "true");
+      };
+
+      const updateOnboardingStep = (step) => {
+        onboardingStep = step;
+        goalStep.hidden = step !== 1;
+        startStep.hidden = step !== 2;
+        document.querySelectorAll(".stepper span").forEach((bar, index) => {
+          bar.classList.toggle("active", index < step);
+        });
+        continueOnboarding.textContent = step === 1 ? "继续 →" : "开始我的第一个任务";
+      };
+
+      document.querySelectorAll(".goal-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          document.querySelectorAll(".goal-card").forEach((item) => item.classList.remove("selected"));
+          card.classList.add("selected");
+          selectedGoal = card.dataset.goal;
+          promptBox.value = card.dataset.prompt;
+        });
+      });
+
+      document.querySelectorAll(".start-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          document.querySelectorAll(".start-card").forEach((item) => item.classList.remove("selected"));
+          card.classList.add("selected");
+          selectedStart = card.dataset.start;
+        });
+      });
+
+      continueOnboarding.addEventListener("click", () => {
+        if (onboardingStep === 1) {
+          updateOnboardingStep(2);
+          return;
+        }
+        localStorage.setItem("meshy-onboarding-goal", selectedGoal);
+        localStorage.setItem("meshy-onboarding-start", selectedStart);
+        closeWelcome();
+        showToast(`${selectedGoal}工作流已准备好，开始写下你的第一个想法吧。`);
+        promptBox.focus();
+      });
+
+      skipOnboarding.addEventListener("click", () => {
+        closeWelcome();
+        showToast("你可以随时从首页开始创作。");
+      });
+
+      closeModal.addEventListener("click", () => closeWelcome());
+      welcomeModal.addEventListener("click", (event) => {
+        if (event.target === welcomeModal) closeWelcome();
+      });
+
+      loginButton.addEventListener("click", () => {
+        openModal("auth");
+        document.querySelector("#emailInput")?.focus();
+      });
+
+      document.querySelector("#backToOnboarding").addEventListener("click", () => openModal("onboarding"));
+      document.querySelector("#guestFromAuth").addEventListener("click", () => {
+        closeWelcome();
+        showToast("已进入访客模式，完成登录后可保存项目。");
+      });
+
+      document.querySelector("#googleLogin").addEventListener("click", () => {
+        localStorage.setItem("meshy-demo-user", "google-user");
+        loginButton.textContent = "已登录";
+        loginButton.classList.add("logged-in");
+        closeWelcome(false);
+        showToast("已登录，接下来可以保存你的 Agent 项目。");
+      });
+
+      document.querySelector("#authForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const email = document.querySelector("#emailInput").value.trim();
+        if (!email) return;
+        localStorage.setItem("meshy-demo-user", email);
+        loginButton.textContent = "已登录";
+        loginButton.classList.add("logged-in");
+        closeWelcome(false);
+        showToast(`欢迎回来，${email}。`);
+      });
+
+      if (localStorage.getItem("meshy-demo-user")) {
+        loginButton.textContent = "已登录";
+        loginButton.classList.add("logged-in");
+      }
+
+      if (!localStorage.getItem("meshy-onboarding-complete")) {
+        window.setTimeout(() => openModal("onboarding"), 420);
+      }
     </script>
   </body>
 </html>
