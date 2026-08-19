@@ -2168,6 +2168,445 @@
           font-size: 20px;
         }
       }
+
+      .reference-tray {
+        padding: 12px 16px 14px;
+        border-top: 1px solid #e7eeeb;
+        background: #f8fbfa;
+      }
+
+      .reference-tray-head,
+      .estimate-row,
+      .agent-plan-head,
+      .agent-plan-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .reference-tray-head strong {
+        display: block;
+        color: #293832;
+        font-size: 12px;
+      }
+
+      .reference-tray-head span,
+      .advanced-summary,
+      .estimate-row,
+      .agent-plan-head span,
+      .toolbar-label {
+        color: #87958f;
+        font-size: 11px;
+      }
+
+      .text-button {
+        padding: 0;
+        color: #16877b;
+        background: transparent;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .text-button:hover {
+        color: #0f665e;
+        text-decoration: underline;
+      }
+
+      .reference-list {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        overflow-x: auto;
+      }
+
+      .reference-item {
+        position: relative;
+        flex: 0 0 76px;
+        height: 60px;
+        overflow: hidden;
+        border: 1px solid #d7e6e0;
+        border-radius: 6px;
+        background: #eaf2ef;
+      }
+
+      .reference-item img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .reference-item button {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        border-radius: 50%;
+        background: rgba(20, 35, 31, 0.72);
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .advanced-panel {
+        border-top: 1px solid #e7eeeb;
+        background: #fbfdfc;
+      }
+
+      .advanced-toggle {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 40px;
+        padding: 0 16px;
+        color: #52635c;
+        background: transparent;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .advanced-toggle > span:first-child {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+      }
+
+      .settings-icon {
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        color: #16877b;
+        border-radius: 5px;
+        background: #e3f5ef;
+        font-size: 13px;
+      }
+
+      .advanced-summary {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      .advanced-chevron {
+        color: #16877b;
+        font-size: 16px;
+        transition: transform 160ms ease;
+      }
+
+      .advanced-toggle[aria-expanded="true"] .advanced-chevron {
+        transform: rotate(180deg);
+      }
+
+      .advanced-body {
+        padding: 0 16px 14px;
+      }
+
+      .settings-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .setting-field {
+        display: grid;
+        gap: 5px;
+        color: #7b8983;
+        font-size: 11px;
+        font-weight: 750;
+      }
+
+      .setting-field select {
+        width: 100%;
+        height: 34px;
+        padding: 0 8px;
+        border: 1px solid #dce7e2;
+        border-radius: 6px;
+        outline: 0;
+        background: #fff;
+        color: #3f5049;
+        font-size: 12px;
+      }
+
+      .setting-field select:focus {
+        border-color: #76c9bb;
+        box-shadow: 0 0 0 3px rgba(104, 211, 197, 0.14);
+      }
+
+      .settings-checks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .check-control {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #65756e;
+        font-size: 11px;
+      }
+
+      .check-control input {
+        accent-color: #16877b;
+      }
+
+      .estimate-row {
+        justify-content: flex-start;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #e7eeeb;
+      }
+
+      .estimate-row strong {
+        color: #16877b;
+      }
+
+      .estimate-row .text-button {
+        margin-left: auto;
+      }
+
+      .agent-plan {
+        position: absolute;
+        z-index: 3;
+        top: 68px;
+        right: 16px;
+        left: 16px;
+        padding: 13px;
+        border: 1px solid rgba(190, 236, 225, 0.2);
+        border-radius: 8px;
+        background: rgba(16, 35, 31, 0.9);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .agent-plan-head strong {
+        display: block;
+        color: #e7faf4;
+        font-size: 13px;
+      }
+
+      .agent-plan-head span {
+        display: block;
+        margin-top: 3px;
+        color: #9cc8bd;
+      }
+
+      .plan-time {
+        color: #bde9df !important;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .plan-progress {
+        height: 5px;
+        margin: 12px 0 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .plan-progress span {
+        display: block;
+        width: 16%;
+        height: 100%;
+        border-radius: inherit;
+        background: #68d3c5;
+        transition: width 300ms ease;
+      }
+
+      .plan-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+      }
+
+      .plan-step {
+        padding: 6px 4px;
+        color: #829f95;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        font-size: 10px;
+        text-align: center;
+      }
+
+      .plan-step.active {
+        color: #e7faf4;
+        border-color: rgba(104, 211, 197, 0.42);
+        background: rgba(104, 211, 197, 0.12);
+      }
+
+      .agent-plan-actions {
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+
+      .small-button {
+        height: 28px;
+        padding: 0 9px;
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        color: #c6e4dc;
+        font-size: 11px;
+      }
+
+      .agent-plan-actions .text-button {
+        margin-left: auto;
+        color: #9eddd0;
+        font-size: 11px;
+      }
+
+      .preview-toolbar {
+        position: absolute;
+        right: 16px;
+        bottom: 105px;
+        left: 16px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 7px;
+        background: rgba(15, 29, 26, 0.72);
+      }
+
+      .toolbar-label {
+        padding: 0 6px;
+        color: #9cb5ae;
+      }
+
+      .preview-tool {
+        height: 26px;
+        padding: 0 8px;
+        color: #9cb5ae;
+        border-radius: 5px;
+        background: transparent;
+        font-size: 11px;
+      }
+
+      .preview-tool:hover,
+      .preview-tool.active {
+        color: #eafff8;
+        background: rgba(104, 211, 197, 0.18);
+      }
+
+      .preview.is-wireframe .core {
+        background: transparent;
+        border: 2px dashed #68d3c5;
+        box-shadow: inset 0 0 0 2px rgba(244, 125, 105, 0.4);
+      }
+
+      .preview.is-bright {
+        filter: saturate(1.14) brightness(1.16);
+      }
+
+      .preview.is-compare .model {
+        transform: scale(0.82) rotateX(58deg) rotateZ(-18deg);
+      }
+
+      .preview.is-compare .model::after {
+        content: "版本 B  · 细节增强";
+        position: absolute;
+        top: 4%;
+        right: -36%;
+        padding: 6px 8px;
+        color: #d9fff6;
+        border: 1px solid rgba(104, 211, 197, 0.35);
+        border-radius: 5px;
+        background: rgba(15, 29, 26, 0.78);
+        font-size: 10px;
+      }
+
+      .detail-viewer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .version-card {
+        padding: 9px;
+        border: 1px solid #dce7e2;
+        border-radius: 7px;
+        background: #fff;
+      }
+
+      .version-card.selected {
+        border-color: #5dbbad;
+        box-shadow: inset 0 0 0 1px #5dbbad;
+      }
+
+      .version-thumb {
+        display: grid;
+        place-items: center;
+        height: 82px;
+        margin-bottom: 7px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #dff5ef, #68d3c5 55%, #f47d69);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 850;
+      }
+
+      .version-card:nth-child(2) .version-thumb {
+        background: linear-gradient(135deg, #273b36, #68d3c5 48%, #8177dc);
+      }
+
+      .version-card strong,
+      .version-card span {
+        display: block;
+      }
+
+      .version-card strong {
+        color: #293832;
+        font-size: 12px;
+      }
+
+      .version-card span {
+        margin-top: 3px;
+        color: #7d8a84;
+        font-size: 10px;
+      }
+
+      @media (max-width: 720px) {
+        .nav-item .nav-icon {
+          display: grid;
+        }
+
+        .settings-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .advanced-summary {
+          display: none;
+        }
+
+        .agent-plan {
+          top: 58px;
+        }
+
+        .preview-toolbar {
+          bottom: 108px;
+          overflow-x: auto;
+        }
+
+        .preview-tool {
+          flex: 0 0 auto;
+        }
+
+        .detail-viewer {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2231,7 +2670,7 @@
             <input placeholder="搜索模型、任务、材质、提示词" />
           </label>
           <div class="top-actions">
-            <input id="referenceInput" type="file" accept="image/*" hidden />
+            <input id="referenceInput" type="file" accept="image/*" multiple hidden />
             <button class="ghost" id="importReference">导入参考图</button>
             <button class="icon-btn" id="notificationButton" title="通知">●</button>
             <button class="auth-btn" id="loginButton">登录 / 注册</button>
@@ -2268,6 +2707,70 @@
                 <button class="tab" data-prompt="继续上次的龙形香炉项目，优化支撑结构并生成青铜氧化材质。">↻ 续作</button>
               </div>
               <textarea id="prompt">做一个赛博茶馆的桌面摆件，适合 3D 打印，结构要稳，表面有细密机械纹理。</textarea>
+              <div class="reference-tray" id="referenceTray" hidden>
+                <div class="reference-tray-head">
+                  <div>
+                    <strong>参考图</strong>
+                    <span id="referenceCount">0 张 · 用于解析轮廓和材质</span>
+                  </div>
+                  <button class="text-button" id="addReference" type="button">+ 添加图片</button>
+                </div>
+                <div class="reference-list" id="referenceList"></div>
+              </div>
+              <div class="advanced-panel" id="advancedPanel">
+                <button class="advanced-toggle" id="advancedToggle" type="button" aria-expanded="false">
+                  <span><span class="settings-icon">⌘</span> 生成参数</span>
+                  <span class="advanced-summary" id="advancedSummary">游戏资产 · 高质量 · GLB</span>
+                  <span class="advanced-chevron">⌄</span>
+                </button>
+                <div class="advanced-body" id="advancedBody" hidden>
+                  <div class="settings-grid">
+                    <label class="setting-field">
+                      <span>使用场景</span>
+                      <select id="purposeSelect">
+                        <option value="game">游戏资产</option>
+                        <option value="print">3D 打印</option>
+                        <option value="product">产品设计</option>
+                        <option value="film">影视 / 概念</option>
+                      </select>
+                    </label>
+                    <label class="setting-field">
+                      <span>质量</span>
+                      <select id="qualitySelect">
+                        <option value="draft">草稿预览</option>
+                        <option value="standard">标准</option>
+                        <option value="high" selected>高质量</option>
+                      </select>
+                    </label>
+                    <label class="setting-field">
+                      <span>面数预算</span>
+                      <select id="polySelect">
+                        <option value="low">低面数 · &lt; 10k</option>
+                        <option value="medium" selected>标准 · 10k-50k</option>
+                        <option value="high">高细节 · 50k+</option>
+                      </select>
+                    </label>
+                    <label class="setting-field">
+                      <span>导出格式</span>
+                      <select id="formatSelect">
+                        <option value="glb" selected>GLB</option>
+                        <option value="fbx">FBX</option>
+                        <option value="obj">OBJ</option>
+                        <option value="stl">STL · 打印</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="settings-checks">
+                    <label class="check-control"><input id="textureCheck" type="checkbox" checked /><span>生成 PBR 材质</span></label>
+                    <label class="check-control"><input id="variantCheck" type="checkbox" checked /><span>保留 4 个概念方向</span></label>
+                    <label class="check-control"><input id="printCheck" type="checkbox" /><span>检查可打印结构</span></label>
+                  </div>
+                  <div class="estimate-row">
+                    <span>预计消耗 <strong id="creditEstimate">28 Credits</strong> · 约 2-4 分钟</span>
+                    <button class="text-button" id="settingsHelp" type="button">了解参数</button>
+                  </div>
+                </div>
+              </div>
               <div class="composer-footer">
                 <div class="chips">
                   <button class="chip">游戏资产</button>
@@ -2294,6 +2797,37 @@
                 <div class="pin">3D</div>
                 <div class="pin">MTL</div>
               </div>
+            </div>
+
+            <div class="agent-plan" id="agentPlan" hidden>
+              <div class="agent-plan-head">
+                <div>
+                  <strong id="agentPlanTitle">Agent 执行计划</strong>
+                  <span id="agentPlanStatus">正在分析你的目标</span>
+                </div>
+                <span class="plan-time" id="planTime">00:00</span>
+              </div>
+              <div class="plan-progress"><span id="planProgressBar"></span></div>
+              <div class="plan-steps">
+                <span class="plan-step active" data-plan-step="理解目标">理解目标</span>
+                <span class="plan-step" data-plan-step="概念方向">概念方向</span>
+                <span class="plan-step" data-plan-step="生成模型">生成模型</span>
+                <span class="plan-step" data-plan-step="交付资产">交付资产</span>
+              </div>
+              <div class="agent-plan-actions">
+                <button class="ghost small-button" id="pauseTask" type="button">暂停任务</button>
+                <button class="ghost small-button" id="cancelTask" type="button">取消</button>
+                <button class="text-button" id="retryTask" type="button">遇到问题？重试</button>
+                <button class="text-button" id="reviewTask" type="button" hidden>查看生成结果 →</button>
+              </div>
+            </div>
+
+            <div class="preview-toolbar" aria-label="Preview controls">
+              <span class="toolbar-label">预览</span>
+              <button class="preview-tool active" id="materialMode" type="button">材质</button>
+              <button class="preview-tool" id="wireframeMode" type="button">线框</button>
+              <button class="preview-tool" id="lightingMode" type="button">灯光</button>
+              <button class="preview-tool" id="compareMode" type="button">对比版本</button>
             </div>
 
             <div class="stage-strip">
@@ -2610,6 +3144,18 @@
         <h2 id="detailTitle">任务详情</h2>
         <p id="detailDescription">从这里继续你的创作。</p>
         <ul class="detail-list" id="detailList"></ul>
+        <div class="detail-viewer" id="detailViewer" hidden>
+          <button class="version-card selected" data-version="A" type="button">
+            <span class="version-thumb">A</span>
+            <strong>版本 A · 平衡</strong>
+            <span>结构清晰 · 28k 面</span>
+          </button>
+          <button class="version-card" data-version="B" type="button">
+            <span class="version-thumb">B</span>
+            <strong>版本 B · 细节增强</strong>
+            <span>细节更丰富 · 46k 面</span>
+          </button>
+        </div>
         <div class="modal-actions">
           <button class="ghost" id="detailSecondary">稍后处理</button>
           <button class="primary" id="detailPrimary">继续任务 →</button>
@@ -2636,11 +3182,28 @@
       const firstTaskTitle = document.querySelector("#firstTaskTitle");
       const firstTaskDescription = document.querySelector("#firstTaskDescription");
       const detailPrimary = document.querySelector("#detailPrimary");
+      const referenceTray = document.querySelector("#referenceTray");
+      const referenceList = document.querySelector("#referenceList");
+      const referenceCount = document.querySelector("#referenceCount");
+      const advancedToggle = document.querySelector("#advancedToggle");
+      const advancedBody = document.querySelector("#advancedBody");
+      const advancedSummary = document.querySelector("#advancedSummary");
+      const creditEstimate = document.querySelector("#creditEstimate");
+      const agentPlan = document.querySelector("#agentPlan");
+      const agentPlanStatus = document.querySelector("#agentPlanStatus");
+      const planTime = document.querySelector("#planTime");
+      const planProgressBar = document.querySelector("#planProgressBar");
+      const detailViewer = document.querySelector("#detailViewer");
       let onboardingStep = 1;
       let selectedGoal = "游戏资产";
       let selectedStart = "text";
       let detailAction = null;
       let taskRunning = false;
+      let taskPaused = false;
+      let taskTicks = 0;
+      let taskTimer = null;
+      let taskInterval = null;
+      let selectedReferences = [];
       let firstTaskStage = Number(localStorage.getItem("meshy-first-task-stage") || "1");
 
       const showToast = (message) => {
@@ -2654,6 +3217,78 @@
         promptBox.value = value;
         promptBox.focus();
         if (message) showToast(message);
+      };
+
+      const renderReferences = () => {
+        referenceTray.hidden = selectedReferences.length === 0;
+        referenceCount.textContent = `${selectedReferences.length} 张 · 用于解析轮廓和材质`;
+        referenceList.innerHTML = selectedReferences.map((reference, index) => `
+          <div class="reference-item">
+            <img src="${reference.url}" alt="${reference.name}" />
+            <button type="button" data-remove-reference="${index}" title="移除参考图">×</button>
+          </div>
+        `).join("");
+        referenceList.querySelectorAll("[data-remove-reference]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const index = Number(button.dataset.removeReference);
+            URL.revokeObjectURL(selectedReferences[index].url);
+            selectedReferences.splice(index, 1);
+            renderReferences();
+            showToast("参考图已移除。 ");
+          });
+        });
+      };
+
+      const updateEstimate = () => {
+        const quality = document.querySelector("#qualitySelect").value;
+        const format = document.querySelector("#formatSelect").value;
+        const purpose = document.querySelector("#purposeSelect").value;
+        const base = { draft: 12, standard: 20, high: 28 }[quality];
+        const texture = document.querySelector("#textureCheck").checked ? 8 : 0;
+        const variants = document.querySelector("#variantCheck").checked ? 4 : 0;
+        const printable = document.querySelector("#printCheck").checked || purpose === "print" ? 4 : 0;
+        const imageCost = selectedReferences.length ? Math.min(selectedReferences.length * 2, 6) : 0;
+        const formatCost = format === "stl" ? 2 : 0;
+        const total = base + texture + variants + printable + imageCost + formatCost;
+        creditEstimate.textContent = `${total} Credits`;
+        const purposeName = document.querySelector("#purposeSelect option:checked").textContent;
+        const qualityName = document.querySelector("#qualitySelect option:checked").textContent;
+        const formatName = document.querySelector("#formatSelect option:checked").textContent.split(" · ")[0];
+        advancedSummary.textContent = `${purposeName} · ${qualityName} · ${formatName}`;
+      };
+
+      const setPlanStage = (stage, status) => {
+        const labels = ["理解目标", "概念方向", "生成模型", "交付资产"];
+        document.querySelectorAll(".plan-step").forEach((step, index) => {
+          step.classList.toggle("active", index === stage);
+          step.classList.toggle("done", index < stage);
+        });
+        planProgressBar.style.width = `${Math.min(94, 16 + stage * 26)}%`;
+        agentPlanStatus.textContent = status || `${labels[stage]}进行中`;
+      };
+
+      const stopTaskTimers = () => {
+        window.clearInterval(taskInterval);
+        window.clearInterval(taskTimer);
+        taskInterval = null;
+        taskTimer = null;
+      };
+
+      const finishTask = () => {
+        stopTaskTimers();
+        taskRunning = false;
+        taskPaused = false;
+        setPlanStage(3, "资产已准备好，等待你评审");
+        document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 已准备好评审';
+        document.querySelector(".send").textContent = "开始创作 →";
+        document.querySelector("#pauseTask").textContent = "暂停任务";
+        document.querySelector("#pauseTask").hidden = true;
+        document.querySelector("#cancelTask").hidden = true;
+        document.querySelector("#retryTask").hidden = true;
+        document.querySelector("#reviewTask").hidden = false;
+        firstTaskAction.disabled = false;
+        updateFirstTask(Math.max(firstTaskStage, 2));
+        showToast("生成完成：现在可以评审版本、保存资产或导出。 ");
       };
 
       const openModal = (mode = "onboarding") => {
@@ -2674,6 +3309,8 @@
         document.querySelector("#detailDescription").textContent = description;
         document.querySelector("#detailList").innerHTML = items.map((item) => `<li>${item}</li>`).join("");
         detailAction = action;
+        detailViewer.hidden = !action || !["review", "asset", "export"].includes(action.kind);
+        document.querySelectorAll(".version-card").forEach((card, index) => card.classList.toggle("selected", index === 0));
         detailPrimary.textContent = label;
         detailModal.classList.add("open");
         detailModal.setAttribute("aria-hidden", "false");
@@ -2683,6 +3320,7 @@
         detailModal.classList.remove("open");
         detailModal.setAttribute("aria-hidden", "true");
         detailAction = null;
+        detailViewer.hidden = true;
       };
 
       const updateOnboardingStep = (step) => {
@@ -2736,19 +3374,40 @@
           return;
         }
         taskRunning = true;
+        taskPaused = false;
+        taskTicks = 0;
+        document.querySelector("#pauseTask").hidden = false;
+        document.querySelector("#cancelTask").hidden = false;
+        document.querySelector("#retryTask").hidden = false;
+        document.querySelector("#reviewTask").hidden = true;
+        agentPlan.hidden = false;
+        setPlanStage(0, selectedReferences.length ? `正在解析 ${selectedReferences.length} 张参考图` : "正在理解用途、风格和结构约束");
+        planTime.textContent = "00:00";
+        planProgressBar.style.width = "16%";
         document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 正在创建任务';
         document.querySelector(".send").textContent = "任务创建中…";
         firstTaskAction.disabled = true;
-        showToast("任务已创建，Agent 正在拆解用途、风格和生成步骤。 ");
-        window.setTimeout(() => {
-          taskRunning = false;
-          document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 已准备好下一步';
-          document.querySelector(".send").textContent = "开始创作 →";
-          firstTaskAction.disabled = false;
-          updateFirstTask(Math.max(firstTaskStage, 2));
-          document.querySelector("#recentSection").scrollIntoView({ behavior: "smooth", block: "start" });
-          showToast("第一步完成：请选择一个方向，继续生成你的作品。 ");
-        }, 900);
+        showToast(`任务已创建，预计消耗 ${creditEstimate.textContent}。`);
+        stopTaskTimers();
+        taskTimer = window.setInterval(() => {
+          if (taskPaused) return;
+          taskTicks += 1;
+          planTime.textContent = `00:${String(taskTicks).padStart(2, "0")}`;
+        }, 1000);
+        let stage = 0;
+        taskInterval = window.setInterval(() => {
+          if (taskPaused) return;
+          stage += 1;
+          if (stage === 1) {
+            setPlanStage(1, "已生成 4 个概念方向，正在比较轮廓");
+            document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 正在生成概念方向';
+          } else if (stage === 2) {
+            setPlanStage(2, "正在生成模型、拓扑与 PBR 材质");
+            document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 正在生成 3D';
+          } else {
+            finishTask();
+          }
+        }, 1050);
       };
 
       tabs.forEach((tab) => {
@@ -2770,6 +3429,29 @@
         });
       });
 
+      advancedToggle.addEventListener("click", () => {
+        const expanded = advancedToggle.getAttribute("aria-expanded") === "true";
+        advancedToggle.setAttribute("aria-expanded", String(!expanded));
+        advancedBody.hidden = expanded;
+      });
+
+      document.querySelectorAll("#advancedBody select, #advancedBody input").forEach((control) => {
+        control.addEventListener("change", () => {
+          if (control.id === "purposeSelect") {
+            const isPrint = control.value === "print";
+            document.querySelector("#printCheck").checked = isPrint;
+            if (isPrint) document.querySelector("#formatSelect").value = "stl";
+          }
+          updateEstimate();
+        });
+      });
+
+      document.querySelector("#settingsHelp").addEventListener("click", () => {
+        openDetail("生成参数说明", "这些设置会影响模型用途、生成时间和 Credits 消耗。", ["草稿适合快速选方向，高质量适合最终资产", "面数预算决定游戏性能和模型细节", "PBR 材质包含颜色、法线与粗糙度贴图", "3D 打印模式会额外检查厚度、封闭性与支撑"], { kind: "close" }, "知道了");
+      });
+
+      document.querySelector("#addReference").addEventListener("click", () => referenceInput.click());
+
       document.querySelector(".send").addEventListener("click", startTask);
       document.querySelector("#firstTaskAction").addEventListener("click", () => {
         if (firstTaskStage === 1) {
@@ -2778,12 +3460,12 @@
         }
         if (firstTaskStage === 2) {
           updateFirstTask(3);
-          openDetail("选择主轮廓", "Agent 为你的任务整理了 4 个可以继续生成的方向。", ["比较整体轮廓和使用场景", "保留一个主方向，再生成 2 个材质变体", "确认后进入高质量 3D 生成"], "generate", "生成 3D 资产 →");
+          openDetail("评审生成结果", "Agent 为你的任务准备了两个可继续编辑的 3D 版本。", ["旋转预览并比较整体轮廓", "版本 A 面数更低，适合实时渲染", "版本 B 细节更丰富，适合展示和打印"], { kind: "review" }, "选择版本并继续 →");
           return;
         }
         if (firstTaskStage === 3) {
           updateFirstTask(4);
-          openDetail("资产已生成", "模型和材质已经进入你的作品空间。", ["模型：已生成", "材质：PBR 预览已准备", "下一步：保存资产并选择导出格式"], "asset", "保存到作品资产 →");
+          openDetail("资产已生成", "模型和材质已经进入你的作品空间。", ["模型：已生成并完成拓扑检查", "材质：2K PBR 贴图已准备", `导出：${document.querySelector("#formatSelect option:checked").textContent}`], { kind: "asset" }, "保存到作品资产 →");
           return;
         }
         document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2825,11 +3507,15 @@
 
       document.querySelector("#importReference").addEventListener("click", () => referenceInput.click());
       referenceInput.addEventListener("change", () => {
-        const file = referenceInput.files[0];
-        if (!file) return;
+        const files = Array.from(referenceInput.files).slice(0, Math.max(0, 4 - selectedReferences.length));
+        if (!files.length) return;
+        files.forEach((file) => selectedReferences.push({ name: file.name, url: URL.createObjectURL(file) }));
+        renderReferences();
+        updateEstimate();
         const suffix = promptBox.value.trim().endsWith("。") ? "" : "。";
-        promptBox.value = `${promptBox.value.trim()}${suffix}参考图：${file.name}，请解析轮廓、材质和比例。`;
-        showToast(`已导入参考图：${file.name}`);
+        promptBox.value = `${promptBox.value.trim()}${suffix}已上传 ${selectedReferences.length} 张参考图，请解析轮廓、材质和比例。`;
+        showToast(`已导入 ${files.length} 张参考图，最多支持 4 张。`);
+        referenceInput.value = "";
         updateFirstTask(Math.max(firstTaskStage, 1));
       });
 
@@ -2837,6 +3523,15 @@
         promptBox.value = "";
         tabs.forEach((tab, index) => tab.classList.toggle("active", index === 0));
         document.querySelectorAll(".chip").forEach((chip) => chip.classList.remove("selected"));
+        selectedReferences.forEach((reference) => URL.revokeObjectURL(reference.url));
+        selectedReferences = [];
+        renderReferences();
+        agentPlan.hidden = true;
+        stopTaskTimers();
+        taskRunning = false;
+        taskPaused = false;
+        document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>Agent 正在规划流程';
+        updateEstimate();
         updateFirstTask(1);
         document.querySelector("#homeMain").scrollIntoView({ behavior: "smooth", block: "start" });
         showToast("新项目已准备好，先从一句话开始。 ");
@@ -2847,8 +3542,60 @@
         notificationPanel.hidden = !notificationPanel.hidden;
       });
 
+      document.querySelector("#pauseTask").addEventListener("click", () => {
+        if (!taskRunning) {
+          showToast("当前没有正在运行的任务。 ");
+          return;
+        }
+        taskPaused = !taskPaused;
+        document.querySelector("#pauseTask").textContent = taskPaused ? "继续任务" : "暂停任务";
+        agentPlanStatus.textContent = taskPaused ? "任务已暂停，你可以修改要求后继续" : "任务已恢复，Agent 正在继续执行";
+        document.querySelector(".status-pill").innerHTML = `<span class="dot"></span>${taskPaused ? "任务已暂停" : "Agent 已恢复执行"}`;
+        showToast(taskPaused ? "任务已暂停，不会继续消耗处理时间。" : "任务已恢复执行。 ");
+      });
+
+      document.querySelector("#cancelTask").addEventListener("click", () => {
+        if (!taskRunning) return showToast("当前没有可以取消的任务。 ");
+        stopTaskTimers();
+        taskRunning = false;
+        taskPaused = false;
+        agentPlanStatus.textContent = "任务已取消 · Credits 未扣除";
+        planProgressBar.style.width = "0%";
+        document.querySelector(".status-pill").innerHTML = '<span class="dot"></span>任务已取消，可重新开始';
+        document.querySelector(".send").textContent = "重新开始 →";
+        firstTaskAction.disabled = false;
+        showToast("任务已取消，本次演示未扣除 Credits。 ");
+      });
+
+      document.querySelector("#retryTask").addEventListener("click", () => {
+        stopTaskTimers();
+        taskRunning = false;
+        taskPaused = false;
+        showToast("已保留当前 Prompt 和参数，正在重新规划任务。 ");
+        startTask();
+      });
+
+      document.querySelector("#reviewTask").addEventListener("click", () => {
+        openDetail("评审生成结果", "Agent 已生成两个可以继续编辑的 3D 版本。", ["版本 A：结构平衡，适合实时渲染", "版本 B：细节增强，适合展示与打印", "选择后可保存资产、创建变体或导出"], { kind: "review" }, "选择版本并继续 →");
+      });
+
+      const setPreviewMode = (button, mode) => {
+        document.querySelectorAll(".preview-tool").forEach((tool) => tool.classList.remove("active"));
+        button.classList.add("active");
+        const preview = document.querySelector(".preview");
+        preview.classList.toggle("is-wireframe", mode === "wireframe");
+        preview.classList.toggle("is-bright", mode === "lighting");
+        preview.classList.toggle("is-compare", mode === "compare");
+        showToast({ material: "已切换到材质预览。", wireframe: "已切换到线框视图，可检查拓扑。", lighting: "已切换灯光环境。", compare: "正在对比版本 A 与版本 B。" }[mode]);
+      };
+
+      document.querySelector("#materialMode").addEventListener("click", (event) => setPreviewMode(event.currentTarget, "material"));
+      document.querySelector("#wireframeMode").addEventListener("click", (event) => setPreviewMode(event.currentTarget, "wireframe"));
+      document.querySelector("#lightingMode").addEventListener("click", (event) => setPreviewMode(event.currentTarget, "lighting"));
+      document.querySelector("#compareMode").addEventListener("click", (event) => setPreviewMode(event.currentTarget, "compare"));
+
       document.querySelector("#expandPreview").addEventListener("click", () => {
-        openDetail("Agent 输出预览", "这是当前任务的工作流预览。完成每一步后，作品会继续沉淀到你的资产空间。", ["理解目标：已完成", "概念发散：等待你选择方向", "生成 3D：可继续推进", "交付资产：登录后可保存"], { kind: "prompt", prompt: promptBox.value }, "继续当前任务 →");
+        openDetail("3D 结果评审", "切换版本查看模型细节、面数和材质表现。", ["视图：材质 / 线框 / 灯光", "检查项：拓扑、UV、法线、贴图", "可以保存当前版本，也可以基于它生成变体"], { kind: "review" }, "选择版本并继续 →");
       });
 
       const templatePrompts = {
@@ -2896,7 +3643,15 @@
         card.addEventListener("click", () => {
           const title = card.querySelector("h3").textContent;
           const prompt = card.dataset.asset === "forest" ? "继续低面数森林道具包，检查贴图并导出 FBX 与 GLB。" : card.dataset.asset === "incense" ? "继续龙形香炉项目，优化底座支撑并生成青铜氧化材质的分件打印版本。" : "继续赛博茶馆桌面摆件，选择主轮廓并生成更多材质方向。";
-          openDetail(title, "这是已经保存在作品空间里的资产。", ["继续编辑模型和材质", "生成一个新的风格或比例变体", "完成后返回作品资产，方便下次继续"], { kind: "prompt", prompt }, "继续编辑 →");
+          openDetail(title, "这是已经保存在作品空间里的资产。", ["继续编辑模型和材质", "生成一个新的风格或比例变体", "导出 GLB、FBX、OBJ 或 STL"], { kind: "asset", prompt }, "基于此资产创建变体 →");
+        });
+      });
+
+      document.querySelectorAll(".version-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          document.querySelectorAll(".version-card").forEach((item) => item.classList.remove("selected"));
+          card.classList.add("selected");
+          showToast(`已选择版本 ${card.dataset.version}。`);
         });
       });
 
@@ -2926,13 +3681,25 @@
           closeDetail();
           updateFirstTask(3);
           showToast("已进入 3D 生成阶段，Agent 正在准备资产。 ");
+        } else if (detailAction.kind === "review") {
+          const version = document.querySelector(".version-card.selected")?.dataset.version || "A";
+          closeDetail();
+          updateFirstTask(3);
+          showToast(`已选择版本 ${version}，可以继续生成细节或保存资产。`);
         } else if (detailAction.kind === "asset") {
           closeDetail();
-          document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
-          showToast("资产已保存到作品空间。 ");
+          if (detailAction.prompt) {
+            setPrompt(`${detailAction.prompt} 基于已保存版本生成一个新的材质与比例变体。`, "已创建资产变体任务，可以继续补充要求。 ");
+            document.querySelector(".composer").scrollIntoView({ behavior: "smooth", block: "center" });
+          } else {
+            document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+            showToast("资产已保存到作品空间。 ");
+          }
         } else if (detailAction.kind === "export") {
           closeDetail();
           showToast("导出设置已打开，选择 GLB 或 FBX 即可继续。 ");
+        } else if (detailAction.kind === "close") {
+          closeDetail();
         }
       });
 
@@ -3003,6 +3770,29 @@
         loginButton.textContent = "已登录";
         loginButton.classList.add("logged-in");
       }
+      const savedSettings = localStorage.getItem("meshy-agent-settings");
+      if (savedSettings) {
+        try {
+          const settings = JSON.parse(savedSettings);
+          ["purposeSelect", "qualitySelect", "polySelect", "formatSelect", "textureCheck", "variantCheck", "printCheck"].forEach((id) => {
+            const control = document.querySelector(`#${id}`);
+            if (settings[id] !== undefined) control[control.type === "checkbox" ? "checked" : "value"] = settings[id];
+          });
+        } catch (error) {
+          localStorage.removeItem("meshy-agent-settings");
+        }
+      }
+      document.querySelectorAll("#advancedBody select, #advancedBody input").forEach((control) => {
+        control.addEventListener("change", () => {
+          const settings = {};
+          ["purposeSelect", "qualitySelect", "polySelect", "formatSelect", "textureCheck", "variantCheck", "printCheck"].forEach((id) => {
+            const item = document.querySelector(`#${id}`);
+            settings[id] = item.type === "checkbox" ? item.checked : item.value;
+          });
+          localStorage.setItem("meshy-agent-settings", JSON.stringify(settings));
+        });
+      });
+      updateEstimate();
       updateFirstTask(firstTaskStage);
       if (!localStorage.getItem("meshy-onboarding-complete")) window.setTimeout(() => openModal("onboarding"), 420);
     </script>
