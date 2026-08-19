@@ -2607,6 +2607,217 @@
           grid-template-columns: 1fr;
         }
       }
+
+      .guided-task-view {
+        min-width: 0;
+      }
+
+      .guided-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: #16877b;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .guided-kicker .dot {
+        width: 7px;
+        height: 7px;
+      }
+
+      .guided-stepper {
+        display: flex;
+        gap: 6px;
+        margin: 15px 0 22px;
+      }
+
+      .guided-stepper span {
+        flex: 1;
+        height: 5px;
+        border-radius: 999px;
+        background: #e1e9e5;
+        transition: background 180ms ease;
+      }
+
+      .guided-stepper span.active,
+      .guided-stepper span.done {
+        background: #16877b;
+      }
+
+      .guided-task-copy h2 {
+        margin-bottom: 9px;
+      }
+
+      .guided-task-copy p {
+        max-width: 460px;
+      }
+
+      .guided-task-card {
+        min-height: 116px;
+        margin-top: 20px;
+        padding: 14px;
+        border: 1px solid #d8e7e1;
+        border-radius: 8px;
+        background: #f5faf8;
+      }
+
+      .guided-task-card h3 {
+        margin: 0 0 8px;
+        color: #293832;
+        font-size: 14px;
+      }
+
+      .guided-task-card p {
+        margin: 0;
+        color: #63746c;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .guided-brief {
+        padding: 11px 12px;
+        border-left: 3px solid #5dbbad;
+        border-radius: 5px;
+        background: #fff;
+        color: #3e5048;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .guided-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+        margin-top: 10px;
+      }
+
+      .guided-meta {
+        padding: 9px;
+        border: 1px solid #dce8e2;
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .guided-meta span,
+      .guided-meta strong {
+        display: block;
+      }
+
+      .guided-meta span {
+        color: #8a9891;
+        font-size: 10px;
+      }
+
+      .guided-meta strong {
+        margin-top: 4px;
+        color: #16877b;
+        font-size: 12px;
+      }
+
+      .guided-option-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .guided-option {
+        min-height: 34px;
+        padding: 0 10px;
+        color: #53665d;
+        border: 1px solid #dce7e2;
+        border-radius: 6px;
+        background: #fff;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .guided-option.selected {
+        color: #14786f;
+        border-color: #65bcae;
+        background: #e4f6f1;
+        box-shadow: inset 0 0 0 1px #65bcae;
+      }
+
+      .guided-upload {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-height: 52px;
+        padding: 10px;
+        border: 1px dashed #9ccfc1;
+        border-radius: 7px;
+        background: #fff;
+      }
+
+      .guided-upload strong,
+      .guided-upload span {
+        display: block;
+      }
+
+      .guided-upload strong {
+        color: #35483f;
+        font-size: 13px;
+      }
+
+      .guided-upload span {
+        margin-top: 3px;
+        color: #83918a;
+        font-size: 11px;
+      }
+
+      .guided-upload button {
+        flex: 0 0 auto;
+        height: 30px;
+        padding: 0 9px;
+        color: #fff;
+        border-radius: 6px;
+        background: #16877b;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .guided-wait {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 58px;
+        color: #45635a;
+        font-size: 13px;
+      }
+
+      .guided-wait .loader {
+        width: 22px;
+        height: 22px;
+        border: 3px solid #d8eee8;
+        border-top-color: #16877b;
+        border-radius: 50%;
+        animation: guidedSpin 900ms linear infinite;
+      }
+
+      @keyframes guidedSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .guided-progress-note {
+        margin-top: 10px;
+        color: #8a9891;
+        font-size: 11px;
+      }
+
+      @media (max-width: 720px) {
+        .guided-meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .guided-task-card {
+          margin-top: 15px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -3127,8 +3338,25 @@
               <button class="primary" type="submit">继续登录</button>
             </form>
             <div class="modal-actions">
-              <button class="ghost" id="backToOnboarding">返回引导</button>
+              <button class="ghost" id="backToOnboarding">重新选择目标</button>
               <button class="primary" id="guestFromAuth">先以访客体验</button>
+            </div>
+          </div>
+
+          <div class="onboarding-view guided-task-view" id="guidedTaskView" hidden>
+            <div class="guided-kicker"><span class="dot"></span> 首次任务向导 · <span id="guidedStepCount">1 / 5</span></div>
+            <div class="guided-stepper" aria-label="第一次任务进度">
+              <span class="active"></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="guided-task-copy">
+              <h2 id="guidedTitle">先确认你的创作目标</h2>
+              <p id="guidedDescription">Agent 会把这句话变成一份可执行的 3D 任务计划。</p>
+            </div>
+            <div class="guided-task-card" id="guidedCard"></div>
+            <div class="guided-progress-note" id="guidedProgressNote">完成这一步后，Agent 会继续带你完成下一步。</div>
+            <div class="modal-actions guided-actions">
+              <button class="ghost" id="guidedLater" type="button">稍后完成</button>
+              <button class="primary" id="guidedPrimary" type="button">确认目标 →</button>
             </div>
           </div>
         </div>
@@ -3194,6 +3422,14 @@
       const planTime = document.querySelector("#planTime");
       const planProgressBar = document.querySelector("#planProgressBar");
       const detailViewer = document.querySelector("#detailViewer");
+      const guidedTaskView = document.querySelector("#guidedTaskView");
+      const guidedTitle = document.querySelector("#guidedTitle");
+      const guidedDescription = document.querySelector("#guidedDescription");
+      const guidedCard = document.querySelector("#guidedCard");
+      const guidedPrimary = document.querySelector("#guidedPrimary");
+      const guidedLater = document.querySelector("#guidedLater");
+      const guidedStepCount = document.querySelector("#guidedStepCount");
+      const guidedProgressNote = document.querySelector("#guidedProgressNote");
       let onboardingStep = 1;
       let selectedGoal = "游戏资产";
       let selectedStart = "text";
@@ -3204,6 +3440,8 @@
       let taskTimer = null;
       let taskInterval = null;
       let selectedReferences = [];
+      let guidedStep = 1;
+      let guidedActive = false;
       let firstTaskStage = Number(localStorage.getItem("meshy-first-task-stage") || "1");
 
       const showToast = (message) => {
@@ -3267,6 +3505,87 @@
         agentPlanStatus.textContent = status || `${labels[stage]}进行中`;
       };
 
+      const openGuidedOnboarding = () => {
+        guidedActive = true;
+        guidedStep = 1;
+        welcomeModal.classList.add("open");
+        welcomeModal.setAttribute("aria-hidden", "false");
+        onboardingView.hidden = true;
+        authView.hidden = true;
+        guidedTaskView.hidden = false;
+        document.querySelector("#closeModal").hidden = true;
+        updateGuidedStep(1);
+      };
+
+      const updateGuidedStep = (step) => {
+        guidedStep = step;
+        guidedStepCount.textContent = `${step} / 5`;
+        document.querySelectorAll(".guided-stepper span").forEach((bar, index) => {
+          bar.classList.toggle("active", index === step - 1);
+          bar.classList.toggle("done", index < step - 1);
+        });
+        const purposeName = document.querySelector("#purposeSelect option:checked")?.textContent || "游戏资产";
+        const formatName = document.querySelector("#formatSelect option:checked")?.textContent || "GLB";
+        const referenceLabel = selectedReferences.length ? `已准备 ${selectedReferences.length} 张参考图` : "暂不添加参考图";
+        const steps = {
+          1: {
+            title: "先确认你的创作目标",
+            description: "Agent 会把这句话变成一份可执行的 3D 任务计划。",
+            card: `<h3>${selectedGoal} · 任务简报</h3><div class="guided-brief">${promptBox.value || "请描述你想要的 3D 资产。"}</div>`,
+            note: "目标确认后，Agent 会帮你补全用途、风格和生成约束。",
+            action: "确认目标 →",
+          },
+          2: {
+            title: "添加一张参考图（可选）",
+            description: "参考图可以帮助 Agent 理解轮廓、材质和比例，也可以直接跳过。",
+            card: `<div class="guided-upload"><div><strong>${referenceLabel}</strong><span>支持 JPG、PNG，最多 4 张</span></div><button id="guidedUploadReference" type="button">${selectedReferences.length ? "继续添加" : "上传参考图"}</button></div>`,
+            note: "没有参考图也没关系，Agent 会从文字描述开始。",
+            action: "继续确认参数 →",
+          },
+          3: {
+            title: "确认生成参数",
+            description: "这些设置会影响生成质量、时间和 Credits 消耗。",
+            card: `<div class="guided-meta-grid"><div class="guided-meta"><span>使用场景</span><strong>${purposeName}</strong></div><div class="guided-meta"><span>质量</span><strong>${document.querySelector("#qualitySelect option:checked")?.textContent || "高质量"}</strong></div><div class="guided-meta"><span>导出格式</span><strong>${formatName}</strong></div></div><div class="guided-option-row"><button class="guided-option ${document.querySelector("#textureCheck").checked ? "selected" : ""}" data-guided-setting="texture" type="button">PBR 材质</button><button class="guided-option ${document.querySelector("#variantCheck").checked ? "selected" : ""}" data-guided-setting="variant" type="button">保留多个方向</button><button class="guided-option ${document.querySelector("#printCheck").checked ? "selected" : ""}" data-guided-setting="print" type="button">打印检查</button></div>`,
+            note: `预计消耗 ${creditEstimate.textContent} · 约 2-4 分钟`,
+            action: "确认并开始执行 →",
+          },
+          4: {
+            title: "让 Agent 开始执行",
+            description: "接下来 Agent 会先理解目标，再生成概念方向、模型和材质。",
+            card: `<div class="guided-meta-grid"><div class="guided-meta"><span>任务目标</span><strong>${selectedGoal}</strong></div><div class="guided-meta"><span>参考资料</span><strong>${referenceLabel}</strong></div><div class="guided-meta"><span>预计消耗</span><strong>${creditEstimate.textContent}</strong></div></div>`,
+            note: "你可以在右侧实时查看计划，也可以随时暂停或取消。",
+            action: "开始我的第一次生成 →",
+          },
+          5: {
+            title: "评审并保存你的第一个资产",
+            description: "Agent 已完成初版生成。选择一个方向，保存后可以继续编辑和导出。",
+            card: `<div class="guided-meta-grid"><div class="guided-meta"><span>版本 A</span><strong>结构平衡 · 28k 面</strong></div><div class="guided-meta"><span>版本 B</span><strong>细节增强 · 46k 面</strong></div><div class="guided-meta"><span>状态</span><strong>可保存</strong></div></div>`,
+            note: "保存后你可以从作品资产继续生成材质、动画或新的变体。",
+            action: "保存到作品资产 →",
+          },
+        }[step];
+        guidedTitle.textContent = steps.title;
+        guidedDescription.textContent = steps.description;
+        guidedCard.innerHTML = steps.card;
+        guidedProgressNote.textContent = steps.note;
+        guidedPrimary.textContent = steps.action;
+        guidedPrimary.disabled = false;
+        if (step === 4 && taskRunning) {
+          guidedPrimary.disabled = true;
+          guidedPrimary.textContent = "Agent 执行中…";
+        }
+        guidedCard.querySelectorAll("[data-guided-setting]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const map = { texture: "textureCheck", variant: "variantCheck", print: "printCheck" };
+            const control = document.querySelector(`#${map[button.dataset.guidedSetting]}`);
+            control.checked = !control.checked;
+            updateEstimate();
+            updateGuidedStep(3);
+          });
+        });
+        guidedCard.querySelector("#guidedUploadReference")?.addEventListener("click", () => referenceInput.click());
+      };
+
       const stopTaskTimers = () => {
         window.clearInterval(taskInterval);
         window.clearInterval(taskTimer);
@@ -3288,6 +3607,7 @@
         document.querySelector("#reviewTask").hidden = false;
         firstTaskAction.disabled = false;
         updateFirstTask(Math.max(firstTaskStage, 2));
+        if (guidedActive) updateGuidedStep(5);
         showToast("生成完成：现在可以评审版本、保存资产或导出。 ");
       };
 
@@ -3296,11 +3616,15 @@
         welcomeModal.setAttribute("aria-hidden", "false");
         onboardingView.hidden = mode !== "onboarding";
         authView.hidden = mode !== "auth";
+        guidedTaskView.hidden = mode !== "guided";
+        document.querySelector("#closeModal").hidden = mode === "guided";
       };
 
       const closeWelcome = (remember = true) => {
         welcomeModal.classList.remove("open");
         welcomeModal.setAttribute("aria-hidden", "true");
+        guidedActive = false;
+        document.querySelector("#closeModal").hidden = false;
         if (remember) localStorage.setItem("meshy-onboarding-complete", "true");
       };
 
@@ -3709,13 +4033,19 @@
         if (event.target === detailModal) closeDetail();
       });
 
-      document.querySelector("#closeModal").addEventListener("click", () => closeWelcome());
+      document.querySelector("#closeModal").addEventListener("click", () => {
+        if (guidedActive) {
+          showToast("第一次任务向导正在进行，完成后再离开。 ");
+          return;
+        }
+        closeWelcome(false);
+      });
       document.querySelector("#skipOnboarding").addEventListener("click", () => {
-        closeWelcome();
+        closeWelcome(false);
         showToast("你可以随时从首页开始创作。 ");
       });
       welcomeModal.addEventListener("click", (event) => {
-        if (event.target === welcomeModal) closeWelcome();
+        if (event.target === welcomeModal && !guidedActive) closeWelcome(false);
       });
       document.querySelectorAll(".goal-card").forEach((card) => {
         card.addEventListener("click", () => {
@@ -3738,9 +4068,39 @@
         if (onboardingStep === 1) return updateOnboardingStep(2);
         localStorage.setItem("meshy-onboarding-goal", selectedGoal);
         localStorage.setItem("meshy-onboarding-start", selectedStart);
-        closeWelcome();
-        showToast(`${selectedGoal}工作流已准备好，开始写下你的第一个想法吧。`);
-        promptBox.focus();
+        openGuidedOnboarding();
+        showToast("目标已确认，接下来 Agent 会带你完成第一次任务。 ");
+      });
+
+      guidedPrimary.addEventListener("click", () => {
+        if (guidedStep === 1) {
+          updateGuidedStep(2);
+          return;
+        }
+        if (guidedStep === 2) {
+          updateGuidedStep(3);
+          return;
+        }
+        if (guidedStep === 3) {
+          updateGuidedStep(4);
+          return;
+        }
+        if (guidedStep === 4) {
+          updateGuidedStep(4);
+          startTask();
+          return;
+        }
+        localStorage.setItem("meshy-onboarding-complete", "true");
+        localStorage.setItem("meshy-first-task-stage", "4");
+        updateFirstTask(4);
+        closeWelcome(false);
+        document.querySelector("#assetsSection").scrollIntoView({ behavior: "smooth", block: "start" });
+        showToast("第一次任务完成，资产已保存到作品空间。 ");
+      });
+
+      guidedLater.addEventListener("click", () => {
+        closeWelcome(false);
+        showToast("任务进度已保留，登录后会继续从这里引导你。 ");
       });
 
       loginButton.addEventListener("click", () => {
@@ -3749,13 +4109,18 @@
       });
       document.querySelector("#backToOnboarding").addEventListener("click", () => openModal("onboarding"));
       document.querySelector("#guestFromAuth").addEventListener("click", () => {
-        closeWelcome();
+        closeWelcome(false);
         showToast("已进入访客模式，完成登录后可保存项目。 ");
       });
       const completeLogin = (user, message) => {
         localStorage.setItem("meshy-demo-user", user);
         loginButton.textContent = "已登录";
         loginButton.classList.add("logged-in");
+        if (!localStorage.getItem("meshy-onboarding-complete")) {
+          openGuidedOnboarding();
+          showToast(`${message} 现在开始第一次任务引导。`);
+          return;
+        }
         closeWelcome(false);
         showToast(message);
       };
@@ -3794,7 +4159,10 @@
       });
       updateEstimate();
       updateFirstTask(firstTaskStage);
-      if (!localStorage.getItem("meshy-onboarding-complete")) window.setTimeout(() => openModal("onboarding"), 420);
+      if (!localStorage.getItem("meshy-onboarding-complete")) window.setTimeout(() => {
+        if (localStorage.getItem("meshy-demo-user")) openGuidedOnboarding();
+        else openModal("onboarding");
+      }, 420);
     </script>
   </body>
 </html>
